@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Hugo.toml.md",
+                "file": "hugo.toml.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Hugo.toml"
+              "title": "hugo.toml"
             }
           }
         ],
@@ -203,7 +203,7 @@
   },
   "active": "d6d43296fbcfcc07",
   "lastOpenFiles": [
-    "Hugo.toml.md",
+    "hugo.toml.md",
     "content/posts/Alchian.md",
     "Untitled.base",
     "Untitled 1.canvas",
