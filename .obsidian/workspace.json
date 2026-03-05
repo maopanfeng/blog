@@ -203,6 +203,7 @@
   },
   "active": "1ad7e28347236929",
   "lastOpenFiles": [
+    "hugo.toml",
     "content/posts/Alchian.md",
     "content/posts/BaillieGifford.md",
     "hugo.toml.md",
@@ -236,7 +237,6 @@
     "content/posts/WikiSentence.md",
     "static/favicon.png",
     "content/posts/StevenCheung.md",
-    "content/posts/SteveJobs.md",
     "layouts/partials",
     "layouts/_default",
     "content/posts",
