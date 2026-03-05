@@ -203,6 +203,7 @@
   },
   "active": "d6d43296fbcfcc07",
   "lastOpenFiles": [
+    "README.md",
     "hugo.toml.md",
     "content/posts/Alchian.md",
     "Untitled.base",
@@ -236,7 +237,6 @@
     "static/favicon.png",
     "content/posts/StevenCheung.md",
     "content/posts/SteveJobs.md",
-    "content/posts/CompoundInterest.md",
     "layouts/partials",
     "layouts/_default",
     "content/posts",
