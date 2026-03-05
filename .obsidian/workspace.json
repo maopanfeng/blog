@@ -20,8 +20,19 @@
               "icon": "lucide-file",
               "title": "Alchian"
             }
+          },
+          {
+            "id": "d6d43296fbcfcc07",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -186,13 +197,13 @@
       "obsidian-shellcommands:Shell commands: Custom variables": false
     }
   },
-  "active": "5548f43d637c4251",
+  "active": "d6d43296fbcfcc07",
   "lastOpenFiles": [
+    "content/posts/Alchian.md",
     "Untitled.base",
     "Untitled 1.canvas",
     "content/posts/Business.md",
     "content/posts/BillMiller.md",
-    "content/posts/Alchian.md",
     "content/posts/BenoitMandelbrot.md",
     "BEN/James Anderson/Rethinking Risk.md",
     "BEN/Brian Arthur/Brian Arthur.md",
