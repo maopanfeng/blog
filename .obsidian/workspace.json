@@ -15,7 +15,7 @@
               "state": {
                 "file": "content/posts/Alchian.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "Alchian"
@@ -29,7 +29,7 @@
               "state": {
                 "file": "hugo.toml.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "hugo.toml"
@@ -201,11 +201,12 @@
       "obsidian-shellcommands:Shell commands: Custom variables": false
     }
   },
-  "active": "d6d43296fbcfcc07",
+  "active": "1ad7e28347236929",
   "lastOpenFiles": [
-    "README.md",
-    "hugo.toml.md",
     "content/posts/Alchian.md",
+    "content/posts/BaillieGifford.md",
+    "hugo.toml.md",
+    "README.md",
     "Untitled.base",
     "Untitled 1.canvas",
     "content/posts/Business.md",
@@ -222,7 +223,6 @@
     "content/posts/JohnKay.md",
     "content/posts/CarlotaPerez.md",
     "content/posts/MitchellWaldrop.md",
-    "content/posts/BaillieGifford.md",
     "content/posts/WikiWord.md",
     "content/posts/BrianArthur.md",
     "content/posts/ComplexityInvesting.md",
