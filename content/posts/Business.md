@@ -38,7 +38,9 @@ Charlie Munger
 
 "Charlie made me focus on the merits of a great business with tremendously growing earnings power - but only when you can be sure of it - not like Texas Instruments or Polaroid, where the earnings power was hypothetical." Warren Buffett
 
-“I much prefer to be long a good business, so we focus on buying growth at a reasonable price.” Larry Robbins
+“I much prefer to be long a good business, so we focus on buying growth at a reasonable price.”   
+Larry Robbins
+
 
 "Our interest starts first with the quality of the business." Jeffrey Ubben
 
