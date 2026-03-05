@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/posts/Business.md",
+                "file": "content/posts/Alchian.md",
                 "mode": "source",
-                "source": true
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "Business"
+              "title": "Alchian"
             }
           }
         ]
@@ -188,11 +188,12 @@
   },
   "active": "5548f43d637c4251",
   "lastOpenFiles": [
+    "Untitled.base",
+    "Untitled 1.canvas",
+    "content/posts/Business.md",
     "content/posts/BillMiller.md",
     "content/posts/Alchian.md",
     "content/posts/BenoitMandelbrot.md",
-    "Untitled 1.canvas",
-    "Untitled.base",
     "BEN/James Anderson/Rethinking Risk.md",
     "BEN/Brian Arthur/Brian Arthur.md",
     "BEN/James Anderson/James Anderson.md",
@@ -201,7 +202,6 @@
     "content/posts/JamesAnderson.md",
     "Untitled.canvas",
     "Welcome.md",
-    "content/posts/Business.md",
     "content/posts/JohnKay.md",
     "content/posts/CarlotaPerez.md",
     "content/posts/MitchellWaldrop.md",
@@ -221,7 +221,6 @@
     "content/posts/StevenCheung.md",
     "content/posts/SteveJobs.md",
     "content/posts/CompoundInterest.md",
-    "content/posts/Complexity.md",
     "layouts/partials",
     "layouts/_default",
     "content/posts",

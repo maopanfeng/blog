@@ -26,7 +26,7 @@
     {
       "id": "3k3bkd098h",
       "platform_specific_commands": {
-        "default": "cd ~/Documents/obsidian && /usr/bin/git add . && /usr/bin/git commit -m \"update\" && /usr/bin/git push -u origin main --force"
+        "default": "cd ~/Documents/obsidian && /usr/bin/git add . && /usr/bin/git commit -m \"sync\" && /usr/bin/git pull origin main --rebase && /usr/bin/git push origin main"
       },
       "shells": {},
       "alias": "PushBlog",
@@ -53,7 +53,30 @@
       "output_channel_order": "stdout-first",
       "output_handling_mode": "buffered",
       "execution_notification_mode": null,
-      "events": {},
+      "events": {
+        "on-quit": {
+          "enabled": true
+        },
+        "on-layout-ready": {
+          "enabled": true
+        },
+        "file-content-modified": {
+          "enabled": true
+        },
+        "file-created": {
+          "enabled": true
+        },
+        "file-deleted": {
+          "enabled": true
+        },
+        "file-renamed": {
+          "enabled": true
+        },
+        "every-n-seconds": {
+          "enabled": true,
+          "seconds": 300
+        }
+      },
       "debounce": null,
       "command_palette_availability": "enabled",
       "preactions": [],
