@@ -8,14 +8,17 @@ draft: false
 
 
 ---
-I believe that the greatest long-range investment profits are never obtained by investing in marginal companies.” Phil Fisher 1958
+I believe that the greatest long-range investment profits are never obtained by investing in marginal companies.”   
+Phil Fisher 1958
 
 
-"A great business at a fair price is superior to a fair business at a great price." 
+"A great business at a fair price is superior to a fair business at a great price."   
 Charlie Munger
 
 
-“We’ve really made the money out of high quality businesses. In some cases, we bought the whole business. And in some cases, we just bought a big block of stock. But when you analyze what happened, the big money’s been made in the high quality businesses. And most of the other people who’ve made a lot of money have done so in high quality businesses.” Charlie Munger
+“We’ve really made the money out of high quality businesses. In some cases, we bought the whole business. And in some cases, we just bought a big block of stock. But when you analyze what happened, the big money’s been made in the high quality businesses. And most of the other people who’ve made a lot of money have done so in high quality businesses.”   
+Charlie Munger
+
 
 “The risk of paying too high a price for good-quality stocks – while a real one – is not the chief hazard confronting the average buyer of securities. Observation over many years has taught us that the chief losses to investors come from the purchase of low-quality securities at times of favorable business conditions.” Benjamin Graham
 
