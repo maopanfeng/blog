@@ -12,6 +12,7 @@ I believe that the greatest long-range investment profits are never obtained by
 Phil Fisher 1958
 
 
+
 "A great business at a fair price is superior to a fair business at a great price."   
 Charlie Munger
 
