@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "hugo.toml.md",
+                "file": "content/posts/Alchian.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "hugo.toml"
+              "title": "Alchian"
             }
           }
         ]
@@ -188,9 +188,9 @@
   },
   "active": "5548f43d637c4251",
   "lastOpenFiles": [
-    "content/posts/Alchian.md",
     "hugo.toml.md",
     "hugo.toml",
+    "content/posts/Alchian.md",
     "content/posts/BaillieGifford.md",
     "README.md",
     "Untitled.base",
