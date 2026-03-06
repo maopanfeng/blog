@@ -6,7 +6,6 @@
     <title>{{ .Title }} - Ben Thinking</title>
     <script src="https://unpkg.com/force-graph"></script>
     <style>
-        /* 保持居中、白底、锁定对齐 */
         body { margin: 0; padding: 0; background: #fff; color: #000; font-family: -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; align-items: center; }
         header { position: fixed; top: 0; left: 0; right: 0; height: 80px; z-index: 9999; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: center; }
         .nav-container { width: 100%; max-width: 720px; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; box-sizing: border-box; }
@@ -18,12 +17,12 @@
         .search-box { background: transparent; border: none; font-size: 13px; width: 80px; outline: none; }
         
         main { width: 100%; max-width: 720px; margin: 140px auto 100px; padding: 0 24px; position: relative; box-sizing: border-box; }
-        h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; letter-spacing: -0.02em; }
-        .post-date { opacity: 0.25; font-size: 0.9rem; margin-bottom: 3rem; }
+        h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 3rem; letter-spacing: -0.02em; }
         
-        /* 星图容器：浅灰色背景突出极简感 */
-        #graph-container { width: 100%; height: 500px; background: #fdfdfd; border-radius: 12px; margin: 20px 0 40px; border: 1px solid #f0f0f0; }
-        
+        /* 星图容器：移除边框，使用通透感设计 */
+        #graph-container { width: 100%; height: 600px; margin: 0 0 40px 0; cursor: grab; }
+        #graph-container:active { cursor: grabbing; }
+
         .sidebar-archive { position: absolute; left: calc(100% + 50px); top: 0; width: 100px; }
         .sidebar-archive h3 { font-size: 11px; opacity: 0.2; text-transform: uppercase; margin-bottom: 15px; }
         .sidebar-archive ul { list-style: none; padding: 0; margin: 0; font-size: 12px; line-height: 2.2; }
@@ -42,7 +41,7 @@
                 <div class="search-wrapper">
                     <form action="/" method="GET" style="margin:0;"><input type="text" name="s" class="search-box" placeholder="搜索..."></form>
                 </div>
-                <a href="/wiki" style="font-size:14px; opacity:{{ if eq .Title "Wiki" }}1{{ else }}0.6{{ end }}; color:{{ if eq .Title "Wiki" }}#007aff{{ else }}inherit{{ end }}; text-decoration:none; font-weight:700;">Wiki</a>
+                <a href="/wiki" style="font-size:14px; color:#007aff; text-decoration:none; font-weight:700;">Wiki</a>
                 <a href="/about" style="font-size:14px; opacity:0.6; text-decoration:none; color:inherit;">关于</a>
             </div>
         </div>
@@ -51,15 +50,10 @@
     <main>
         <aside class="sidebar-archive">
             <h3>Timeline</h3>
-            <ul>
-                {{ range (seq 2026 -1 2000) }}
-                <li><a href="/#{{ . }}">{{ . }}</a></li>
-                {{ end }}
-            </ul>
+            <ul>{{ range (seq 2026 -1 2000) }}<li><a href="/#{{ . }}">{{ . }}</a></li>{{ end }}</ul>
         </aside>
 
         <h1>{{ .Title }}</h1>
-        {{ if not (eq .Title "Wiki") }}<div class="post-date">{{ .Date.Format "2006-01-02" }}</div>{{ end }}
 
         <div class="content">
             {{ if or (eq .Title "Wiki") (in .Permalink "wiki") }}
@@ -67,23 +61,20 @@
                 <script>
                     window.onload = function() {
                         const container = document.getElementById('graph-container');
-                        const nodes = [{ id: 'Wiki', group: 1, size: 12 }];
+                        const nodes = [{ id: 'Wiki', name: 'WIKI', group: 1, val: 15 }];
                         const links = [];
                         const nodesSet = new Set(['Wiki']);
 
                         {{ range .Site.RegularPages }}
                             {{ if .Params.keywords }}
-                                // 1. 先把文章本身作为节点加入
                                 if (!nodesSet.has('{{ .Title }}')) {
-                                    nodes.push({ id: '{{ .Title }}', group: 2, size: 7, url: '{{ .Permalink }}' });
+                                    nodes.push({ id: '{{ .Title }}', name: '{{ .Title }}', group: 2, val: 8, url: '{{ .Permalink }}' });
                                     links.push({ source: 'Wiki', target: '{{ .Title }}' });
                                     nodesSet.add('{{ .Title }}');
                                 }
-
-                                // 2. 把文章定义的 keywords 作为子节点挂载
                                 {{ range .Params.keywords }}
                                     if (!nodesSet.has('{{ . }}')) {
-                                        nodes.push({ id: '{{ . }}', group: 3, size: 4 });
+                                        nodes.push({ id: '{{ . }}', name: '{{ . }}', group: 3, val: 4 });
                                         nodesSet.add('{{ . }}');
                                     }
                                     links.push({ source: '{{ $.Title }}', target: '{{ . }}' });
@@ -93,20 +84,36 @@
 
                         const Graph = ForceGraph()(container)
                             .graphData({ nodes, links })
-                            .nodeColor(n => {
-                                if(n.group === 1) return '#007aff'; // 中心：蓝
-                                if(n.group === 2) return '#000000'; // 文章：黑
-                                return '#e0e0e0';                   // 词条：淡灰
+                            .nodeRelSize(1)
+                            .nodeCanvasObject((node, ctx, globalScale) => {
+                                const label = node.name;
+                                const fontSize = 14 / globalScale;
+                                ctx.font = `${fontSize}px Inter, -apple-system, sans-serif`;
+                                
+                                // 画圆点
+                                ctx.beginPath();
+                                ctx.arc(node.x, node.y, node.val / 2, 0, 2 * Math.PI, false);
+                                ctx.fillStyle = node.group === 1 ? '#007aff' : (node.group === 2 ? '#000' : '#bbb');
+                                ctx.fill();
+
+                                // 画常驻文字
+                                if (globalScale > 1.5) { // 缩放足够大时才显示小标签
+                                    ctx.textAlign = 'center';
+                                    ctx.textBaseline = 'middle';
+                                    ctx.fillStyle = '#666';
+                                    ctx.fillText(label, node.x, node.y + (node.val / 2) + 5);
+                                }
                             })
-                            .nodeVal(n => n.size)
-                            .nodeLabel('id')
-                            .linkDirectionalParticles(1)
-                            .linkDirectionalParticleSpeed(0.004)
-                            .linkColor(() => '#f0f0f0')
-                            .width(container.offsetWidth).height(500)
-                            .onNodeClick(n => { if(n.url) window.location.href = n.url; });
-                        
-                        Graph.d3Force('charge').strength(-150);
+                            .linkDirectionalParticles(2)
+                            .linkDirectionalParticleSpeed(0.005)
+                            .linkDirectionalParticleWidth(1.5)
+                            .linkColor(() => '#eee')
+                            .width(container.offsetWidth).height(600)
+                            .onNodeClick(node => { if(node.url) window.location.href = node.url; });
+
+                        // 注入动力场
+                        Graph.d3Force('charge').strength(-200);
+                        Graph.d3Force('link').distance(50);
                     };
                 </script>
             {{ else }}
