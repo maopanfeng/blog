@@ -11,4 +11,4 @@ theme = 'paper'
     name = "Tony Mao"
 
 [site]
-    title = "Tony Mao Blog"
+    title = "Ben Mao Blog"
