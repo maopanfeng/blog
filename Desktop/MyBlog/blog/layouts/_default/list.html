@@ -1,0 +1,26 @@
+{{ define "main" }}
+
+{{ if .Content }}
+<div class="prose dark:prose-invert mb-12">
+  {{ .Content }}
+</div>
+{{ end }}
+
+<div class="post-list">
+  {{ $pages := where .Site.RegularPages "Section" "posts" }}
+  {{ range (.Paginate $pages).Pages }}
+  <section class="post-item" style="margin-bottom: 3rem;">
+    <h2 style="margin-bottom: 0.5rem;">
+      <a href="{{ .Permalink }}" style="text-decoration: none; color: inherit; font-size: 1.5rem; font-weight: 700;">{{ .Title }}</a>
+    </h2>
+    <div style="opacity: 0.5; font-size: 0.9rem; margin-bottom: 1rem;">
+      <time>{{ .Date.Format "January 2, 2006" }}</time>
+    </div>
+    <div class="post-summary" style="opacity: 0.8; line-height: 1.6;">
+      {{ .Summary }}
+    </div>
+  </section>
+  {{ end }}
+</div>
+
+{{ end }}
