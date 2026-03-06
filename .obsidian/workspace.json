@@ -188,6 +188,9 @@
   },
   "active": "5548f43d637c4251",
   "lastOpenFiles": [
+    "BEN/Brian Arthur/Brian Arthur.md",
+    "BEN/Brian Arthur",
+    "BEN",
     "hugo.toml.md",
     "hugo.toml",
     "content/posts/Alchian.md",
@@ -199,10 +202,8 @@
     "content/posts/BillMiller.md",
     "content/posts/BenoitMandelbrot.md",
     "BEN/James Anderson/Rethinking Risk.md",
-    "BEN/Brian Arthur/Brian Arthur.md",
     "BEN/James Anderson/James Anderson.md",
     "BEN/James Anderson",
-    "BEN/Brian Arthur",
     "content/posts/JamesAnderson.md",
     "Untitled.canvas",
     "Welcome.md",
@@ -225,7 +226,6 @@
     "layouts/partials",
     "layouts/_default",
     "content/posts",
-    "themes/paper",
-    "archetypes"
+    "themes/paper"
   ]
 }
