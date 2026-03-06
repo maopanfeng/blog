@@ -5,7 +5,7 @@ theme = 'paper'
 
 # 
 [params]
-    author = "B en Mao"
+    author = "Ben Mao"
     description = "投资、科技与生活随笔"
 
 [menu]
