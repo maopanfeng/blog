@@ -5,30 +5,32 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Ben Thinking</title>
     <style>
-        /* 保持你要求的居中、白底、50px 间距样式 */
+        /* 1. 全设备居中 & 极简白底 */
         body { margin: 0; padding: 0; background: #fff; color: #000; font-family: -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; align-items: center; }
         header { position: fixed; top: 0; left: 0; right: 0; height: 80px; z-index: 9999; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: center; }
         .nav-container { width: 100%; max-width: 720px; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; box-sizing: border-box; }
         .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
         .site-logo { width: 32px; height: 32px; object-fit: contain; border-radius: 6px; }
         .site-title { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.03em; }
+
         .nav-right { display: flex; align-items: center; gap: 20px; }
         .search-wrapper { display: flex; align-items: center; background: rgba(0,0,0,0.05); border-radius: 20px; padding: 6px 15px; }
         .search-box { background: transparent; border: none; font-size: 13px; width: 80px; outline: none; }
         
+        /* 2. 内容区：50px 留白 */
         main { width: 100%; max-width: 720px; margin: 140px auto 0; padding: 0 24px; position: relative; box-sizing: border-box; }
-        .post-item { margin-bottom: 50px; transition: all 0.3s ease; }
+        .post-item { margin-bottom: 50px; display: block; }
         .post-title { font-size: 1.85rem; font-weight: 800; margin-bottom: 0.8rem; display: block; text-decoration: none; color: inherit; line-height: 1.3; letter-spacing: -0.02em; }
         .post-date { opacity: 0.25; font-size: 0.9rem; margin-bottom: 1.5rem; }
         .post-summary { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.8; opacity: 0.7; font-size: 16px; margin-bottom: 1.2rem; }
         .read-more { font-size: 14px; font-weight: 700; color: #007aff; text-decoration: none; }
 
-        /* Timeline 交互样式 */
+        /* 3. Timeline：改成 pointer 确保不跳转 */
         .sidebar-archive { position: absolute; left: calc(100% + 50px); top: 0; width: 100px; }
         .sidebar-archive h3 { font-size: 11px; opacity: 0.2; text-transform: uppercase; margin-bottom: 15px; }
         .sidebar-archive ul { list-style: none; padding: 0; margin: 0; font-size: 12px; line-height: 2.5; }
-        .sidebar-archive a { color: inherit; text-decoration: none; opacity: 0.4; cursor: pointer; transition: 0.2s; }
-        .sidebar-archive a:hover, .sidebar-archive a.active { opacity: 1; color: #007aff; font-weight: 600; }
+        .sidebar-archive span { cursor: pointer; opacity: 0.4; transition: 0.2s; display: block; }
+        .sidebar-archive span:hover, .sidebar-archive span.active { opacity: 1; color: #007aff; font-weight: 600; }
         @media (max-width: 1150px) { .sidebar-archive { display: none; } }
     </style>
 </head>
@@ -51,9 +53,9 @@
         <aside class="sidebar-archive">
             <h3>Timeline</h3>
             <ul>
-                <li><a onclick="filterYear('all')" id="year-all">Show All</a></li>
+                <li><span onclick="filterYear('all')" id="year-all" class="year-btn active">Show All</span></li>
                 {{ range (seq 2026 -1 2020) }}
-                <li><a onclick="filterYear('{{ . }}')" class="year-link">{{ . }}</a></li>
+                <li><span onclick="filterYear('{{ . }}')" class="year-btn">{{ . }}</span></li>
                 {{ end }}
             </ul>
         </aside>
@@ -71,13 +73,13 @@
     </main>
 
     <script>
-        // 核心筛选逻辑：点击年份，只显示对应文章
         function filterYear(year) {
             const posts = document.querySelectorAll('.post-item');
-            const links = document.querySelectorAll('.year-link');
+            const btns = document.querySelectorAll('.year-btn');
             
-            links.forEach(l => l.style.opacity = "0.4");
-            if(event && event.target) event.target.style.opacity = "1";
+            // 切换按钮高亮
+            btns.forEach(btn => btn.classList.remove('active'));
+            if(event) event.target.classList.add('active');
 
             posts.forEach(post => {
                 if (year === 'all' || post.getAttribute('data-year') === year) {
@@ -86,9 +88,10 @@
                     post.style.display = 'none';
                 }
             });
+            // 筛选后滚动回顶部
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        // 搜索框简单筛选
         function filterSearch(query) {
             const posts = document.querySelectorAll('.post-item');
             posts.forEach(post => {
