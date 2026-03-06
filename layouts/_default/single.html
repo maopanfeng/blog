@@ -6,25 +6,27 @@
     <title>{{ .Title }} - Ben Thinking</title>
     <script src="https://unpkg.com/force-graph"></script>
     <style>
-        body { margin: 0; padding: 0; background: #fff; color: #000; font-family: -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; align-items: center; }
+        body { margin: 0; padding: 0; background: #fff; color: #000; font-family: -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
         header { position: fixed; top: 0; left: 0; right: 0; height: 80px; z-index: 9999; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: center; }
         .nav-container { width: 100%; max-width: 720px; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; box-sizing: border-box; }
         .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
-        .site-logo { width: 32px; height: 32px; border-radius: 6px; }
+        .site-logo { width: 32px; height: 32px; border-radius: 6px; object-fit: contain; }
         .site-title { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.03em; }
         .nav-right { display: flex; align-items: center; gap: 20px; }
         .search-wrapper { display: flex; align-items: center; background: rgba(0,0,0,0.05); border-radius: 20px; padding: 6px 15px; }
         .search-box { background: transparent; border: none; font-size: 13px; width: 80px; outline: none; }
         
-        main { width: 100%; max-width: 720px; margin: 140px auto 100px; padding: 0 24px; position: relative; box-sizing: border-box; transition: max-width 0.4s ease; }
-        @media (min-width: 1200px) {
-            .wiki-mode { max-width: 1200px !important; }
-            .wiki-mode #graph-container { height: 850px !important; }
-        }
-
+        main { width: 100%; max-width: 720px; margin: 140px auto 0; padding: 0 24px; position: relative; box-sizing: border-box; flex: 1; transition: max-width 0.4s ease; }
+        @media (min-width: 1200px) { .wiki-mode { max-width: 1200px !important; } .wiki-mode #graph-container { height: 850px !important; } }
+        
         h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 2rem; letter-spacing: -0.02em; text-align: center; }
         .post-date { opacity: 0.25; font-size: 0.9rem; text-align: center; margin-bottom: 3rem; }
+        .content { line-height: 1.8; opacity: 0.9; font-size: 17px; }
+        
         #graph-container { width: 100%; height: 600px; margin: 0; cursor: grab; background: #fff; }
+
+        /* 底部版权声明：保持全站统一居中 */
+        footer { width: 100%; padding: 100px 24px 60px; text-align: center; box-sizing: border-box; font-size: 12px; opacity: 0.2; letter-spacing: 0.05em; }
 
         .sidebar-archive { position: absolute; left: calc(100% + 50px); top: 0; width: 100px; }
         .sidebar-archive h3 { font-size: 11px; opacity: 0.2; text-transform: uppercase; margin-bottom: 15px; }
@@ -37,7 +39,7 @@
     <header>
         <div class="nav-container">
             <a href="/" class="logo-wrapper">
-                <img src="/logo.png" alt="" class="site-logo" onerror="this.style.display='none'">
+                <img src="/logo.png" alt="" class="site-logo">
                 <span class="site-title">Ben Thinking</span>
             </a>
             <div class="nav-right">
@@ -70,27 +72,23 @@
                 <script>
                     window.onload = function() {
                         const container = document.getElementById('graph-container');
-                        const nodes = [{ id: 'Wiki', name: 'Wiki', group: 1, size: 14 }];
+                        const nodes = [{ id: 'Wiki', name: 'Wiki', group: 1, size: 12 }];
                         const links = [];
                         const nodesSet = new Set(['Wiki']);
-
-                        {{ range .Site.RegularPages }}
-                            {{ if .Params.keywords }}
-                                if (!nodesSet.has('{{ .Title }}')) {
-                                    nodes.push({ id: '{{ .Title }}', name: '{{ .Title }}', group: 2, size: 10, url: '{{ .Permalink }}' });
-                                    links.push({ source: 'Wiki', target: '{{ .Title }}' });
-                                    nodesSet.add('{{ .Title }}');
+                        {{ range .Site.RegularPages }}{{ if .Params.keywords }}
+                            if (!nodesSet.has('{{ .Title }}')) {
+                                nodes.push({ id: '{{ .Title }}', name: '{{ .Title }}', group: 2, size: 8, url: '{{ .Permalink }}' });
+                                links.push({ source: 'Wiki', target: '{{ .Title }}' });
+                                nodesSet.add('{{ .Title }}');
+                            }
+                            {{ range .Params.keywords }}
+                                if (!nodesSet.has('{{ . }}')) {
+                                    nodes.push({ id: '{{ . }}', name: '{{ . }}', group: 3, size: 5 });
+                                    nodesSet.add('{{ . }}');
                                 }
-                                {{ range .Params.keywords }}
-                                    if (!nodesSet.has('{{ . }}')) {
-                                        nodes.push({ id: '{{ . }}', name: '{{ . }}', group: 3, size: 6 });
-                                        nodesSet.add('{{ . }}');
-                                    }
-                                    links.push({ source: '{{ $.Title }}', target: '{{ . }}' });
-                                {{ end }}
+                                links.push({ source: '{{ $.Title }}', target: '{{ . }}' });
                             {{ end }}
-                        {{ end }}
-
+                        {{ end }}{{ end }}
                         const Graph = ForceGraph()(container)
                             .graphData({ nodes, links })
                             .nodeLabel(null)
@@ -101,28 +99,28 @@
                                 ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI, false);
                                 ctx.fillStyle = node.group === 1 ? '#007aff' : (node.group === 2 ? '#000' : '#ccc');
                                 ctx.fill();
-                                const fontSize = 12 / globalScale;
+                                const fontSize = 11 / globalScale;
                                 ctx.font = `${fontSize}px -apple-system, sans-serif`;
                                 ctx.textAlign = 'center'; ctx.textBaseline = 'top';
                                 ctx.fillStyle = node.group === 3 ? '#999' : '#333';
-                                ctx.fillText(label, node.x, node.y + radius + (4 / globalScale));
+                                ctx.fillText(label, node.x, node.y + radius + (3 / globalScale));
                             })
-                            .linkColor(() => '#f2f2f2')
-                            .linkWidth(1.2)
-                            .linkDirectionalParticles(1)
-                            .linkDirectionalParticleSpeed(0.003)
+                            .linkColor(() => '#f2f2f2').linkWidth(1).linkDirectionalParticles(1).linkDirectionalParticleSpeed(0.003)
                             .width(container.offsetWidth).height(container.offsetHeight)
                             .onNodeClick(node => { if(node.url) window.location.href = node.url; });
-
                         const isLarge = window.innerWidth > 1200;
                         Graph.d3Force('charge').strength(isLarge ? -600 : -300);
                         Graph.d3Force('link').distance(isLarge ? 130 : 70);
                     };
                 </script>
             {{ else }}
-                <div style="line-height:1.8; opacity:0.9; max-width: 720px; margin: 0 auto;">{{ .Content }}</div>
+                {{ .Content }}
             {{ end }}
         </div>
     </main>
+
+    <footer>
+        <p>© 2026 Ben Thinking. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
