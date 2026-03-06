@@ -33,8 +33,7 @@
               "title": "avatar"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -199,11 +198,11 @@
       "obsidian-shellcommands:Shell commands: Custom variables": false
     }
   },
-  "active": "80c04904f483c7cf",
+  "active": "5548f43d637c4251",
   "lastOpenFiles": [
+    "static/avatar.png",
     "layouts/index.html.md",
     "layouts/index.html",
-    "static/avatar.png",
     "static/favicon.ico",
     "layouts/partials/header.html",
     "layouts/partials/footer.html",
