@@ -37,10 +37,14 @@
             "id": "d40e3543636017ce",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Untitled.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Untitled"
             }
           }
         ],
@@ -211,6 +215,7 @@
   },
   "active": "d40e3543636017ce",
   "lastOpenFiles": [
+    "Untitled.md",
     "static/avatar.png",
     "static/favicon.ico",
     "layouts/partials/header.html",
