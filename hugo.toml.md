@@ -1,13 +1,23 @@
 baseURL = 'https://maopanfeng.com/'
 languageCode = 'zh-cn'
-title = 'Ben Blog'
+title = 'Ben 的博客'
 theme = 'paper'
 
-# 显式定义 params 以修复模板解析错误
 [params]
-    author = "Ben"
-    description = "投资、科技与生活"
-
-# 为旧版主题模板提供冗余定义
-[author]
     name = "Ben"
+    description = "投资、科技与生活随笔"
+    # 增加主题可能引用的社交和样式开关
+    twitter = ""
+    github = "maopanfeng"
+    instagram = ""
+    rss = true
+
+[menu]
+  [[menu.main]]
+    name = "首页"
+    url = "/"
+    weight = 10
+  [[menu.main]]
+    name = "关于"
+    url = "/about"
+    weight = 20
