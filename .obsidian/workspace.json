@@ -32,23 +32,9 @@
               "icon": "lucide-image",
               "title": "avatar"
             }
-          },
-          {
-            "id": "d40e3543636017ce",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "layouts/index.html.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "index.html"
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -213,9 +199,10 @@
       "obsidian-shellcommands:Shell commands: Custom variables": false
     }
   },
-  "active": "d40e3543636017ce",
+  "active": "80c04904f483c7cf",
   "lastOpenFiles": [
     "layouts/index.html.md",
+    "layouts/index.html",
     "static/avatar.png",
     "static/favicon.ico",
     "layouts/partials/header.html",
@@ -228,7 +215,6 @@
     "2026-01-01.md",
     "themes/paper/assets/main.css",
     "themes/paper/assets/custom.css",
-    "themes/paper/assets/app.css",
     "themes/paper/static/twitter.svg",
     "themes/paper/static/threads.svg",
     "themes/paper/static/theme.svg",
@@ -261,7 +247,6 @@
     "content/posts/BaillieGifford.md",
     "README.md",
     "Untitled 1.canvas",
-    "content/posts/Business.md",
     "Untitled.canvas"
   ]
 }
