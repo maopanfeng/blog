@@ -26,6 +26,7 @@ So the most underappreciated quality in founders is sheer toughness.
 ---
 ## Founder Mode  
 
+
 Founder mode is a term used and popularized by Y Combinator co-founder Paul Graham in a September 2024 essay in response to a talk delivered by Airbnb co-founder Brian Chesky. It describes a specific kind of leadership in which a founder has a direct, hands-on approach to their company rather than breaking up and delegating responsibility through a top-down structure. Often cited examples of leaders embodying founder mode include Steve Jobs, Elon Musk, and Jensen Huang.
 
 ---
