@@ -6,41 +6,26 @@
     <title>Ben Thinking</title>
     <link rel="stylesheet" href="/main.css">
     <style>
-        /* 1. 严格对齐 About：纯白背景，纯黑文字，极致留白 */
         body { margin:0; padding:0; min-height:100vh; display:flex; flex-direction:column; font-family:-apple-system,BlinkMacSystemFont,sans-serif; background-color: #fff; color: #000; -webkit-font-smoothing: antialiased; }
-        
-        /* 2. 导航栏修复：Logo 锁定在 720px 容器内，不再飘走 */
-        header { position:fixed; top:0; left:0; right:0; height:100px; z-index:9999; background-color:rgba(255,255,255,0.9); backdrop-filter:blur(10px); }
+        header { position:fixed; top:0; left:0; right:0; height:100px; z-index:9999; background-color:rgba(255,255,255,0.95); backdrop-filter:blur(10px); }
         .nav-container { max-width:720px; height:100%; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:0 24px; box-sizing:border-box; }
         .site-title { font-weight:700; font-size:1.25rem; text-decoration:none; color:inherit; letter-spacing:-0.03em; }
-
         .search-wrapper { display: flex; align-items: center; background: rgba(0,0,0,0.04); border-radius: 20px; padding: 6px 15px; }
-        .search-box { background: transparent; border: none; font-size: 13px; width: 100px; outline: none; color: #000; }
+        .search-box { background: transparent; border: none; font-size: 13px; width: 100px; outline: none; }
 
-        /* 3. Timeline：补全 2026-2000，垂直居于内容右侧 */
         .sidebar-archive { position:absolute; left:calc(100% + 60px); top:0; width:100px; }
         .sidebar-archive h3 { font-size:11px; opacity:0.2; text-transform:uppercase; margin-bottom:15px; letter-spacing:2px; }
         .sidebar-archive ul { list-style:none; padding:0; margin:0; font-size:12px; opacity:0.4; line-height:2.5; }
         .sidebar-archive a { color: inherit; text-decoration: none; }
         @media(max-width: 1250px) { .sidebar-archive { display: none; } }
 
-        /* 4. 文章列表：增加 8rem 的超级间距，对齐 About 的呼吸感 */
+        /* 呼吸感：文章间距 8rem */
         .post-list { margin-top: 160px; }
         .post-item { margin-bottom: 8rem; } 
         .post-title { font-size: 1.85rem; font-weight: 700; margin-bottom: 1.2rem; display: block; text-decoration:none; color:inherit; letter-spacing:-0.02em; }
-        .post-date { opacity: 0.25; font-size: 0.9rem; margin-bottom: 2.5rem; letter-spacing: 0.05em; }
+        .post-date { opacity: 0.25; font-size: 0.9rem; margin-bottom: 2.5rem; }
         
-        /* 5. 摘要折叠：精准 3 行截断预览 */
-        .summary-content { 
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;  
-            overflow: hidden;
-            opacity: 0.75;
-            line-height: 1.9;
-            font-size: 16px;
-        }
-
+        .summary-content { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; opacity: 0.75; line-height: 1.9; font-size: 16px; }
         details { margin-top: 20px; }
         summary { cursor: pointer; color: #007aff; font-size: 14px; outline: none; list-style: none; padding: 10px 0; font-weight: 500; }
         details[open] .summary-content { display: none; } 
@@ -64,7 +49,7 @@
             <h3>Timeline</h3>
             <ul>
                 {{ range (seq 2026 -1 2000) }}
-                <li><a href="/archive/{{ . }}">{{ . }}</a></li>
+                <li><a href="/years/{{ . }}">{{ . }}</a></li>
                 {{ end }}
             </ul>
         </aside>
@@ -74,15 +59,10 @@
             <article class="post-item">
                 <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
                 <div class="post-date">{{ .Date.Format "2006-01-02" }}</div>
-                
                 <div class="summary-content">{{ .Summary }}</div>
-                
                 <details>
                     <summary>展开摘要 ↓</summary>
-                    <div class="full-text">
-                        {{ .Summary }}
-                        <p style="margin-top:25px;"><a href="{{ .Permalink }}" style="color:#007aff;font-weight:600;text-decoration:none;">阅读全文 →</a></p>
-                    </div>
+                    <div class="full-text">{{ .Summary }}<p style="margin-top:25px;"><a href="{{ .Permalink }}" style="color:#007aff;font-weight:600;text-decoration:none;">阅读全文 →</a></p></div>
                 </details>
             </article>
             {{ end }}
