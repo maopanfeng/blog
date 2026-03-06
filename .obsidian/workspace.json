@@ -184,8 +184,9 @@
       "obsidian-shellcommands:Shell commands: Custom variables": false
     }
   },
-  "active": "1ad7e28347236929",
+  "active": "80c04904f483c7cf",
   "lastOpenFiles": [
+    "2026-01-01.md",
     "layouts/index.html.sb-fc8bb51d-ZH5qaV",
     "static/avatar.png",
     "layouts/index.html.md",
@@ -198,9 +199,7 @@
     "layouts/_default/list.html",
     "layouts/_default/single.html",
     "static/favicon.png",
-    "2026-01-01.md",
     "themes/paper/assets/main.css",
-    "themes/paper/assets/custom.css",
     "themes/paper/static/twitter.svg",
     "themes/paper/static/threads.svg",
     "themes/paper/static/theme.svg",
