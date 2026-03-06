@@ -5,7 +5,7 @@ theme = 'paper'
 
 [params]
     name = "Ben"
-    description = "投资、科技与生活随笔"
+    description = "投资、科技与生活"
     # 增加主题可能引用的社交和样式开关
     twitter = ""
     github = "maopanfeng"
