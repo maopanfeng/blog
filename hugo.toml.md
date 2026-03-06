@@ -1,6 +1,6 @@
 baseURL = 'https://maopanfeng.com/'
 languageCode = 'zh-cn'
-title = 'Ben B l'
+title = 'Ben Blog'
 theme = 'paper'
 
 # 显式定义 params 以修复模板解析错误
