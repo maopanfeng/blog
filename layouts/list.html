@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Wiki - Ben Thinking</title>
+    <script src="https://unpkg.com/force-graph"></script>
+    <style>
+        /* 1. 继承首页极简风格 */
+        body { margin: 0; padding: 0; background: #fff; color: #000; font-family: -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; align-items: center; }
+        header { position: fixed; top: 0; left: 0; right: 0; height: 80px; z-index: 9999; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: center; }
+        .nav-container { width: 100%; max-width: 720px; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; box-sizing: border-box; }
+        .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+        .site-logo { width: 32px; height: 32px; object-fit: contain; border-radius: 6px; }
+        .site-title { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.03em; }
+
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .search-wrapper { display: flex; align-items: center; background: rgba(0,0,0,0.05); border-radius: 20px; padding: 6px 15px; }
+        .search-box { background: transparent; border: none; font-size: 13px; width: 80px; outline: none; }
+        
+        /* 2. Wiki 特有布局 */
+        main { width: 100%; max-width: 720px; margin: 120px auto 0; padding: 0 24px; position: relative; box-sizing: border-box; }
+        h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 2rem; letter-spacing: -0.02em; }
+
+        /* 3. 星图容器 */
+        #graph-container { width: 100%; height: 350px; background: rgba(0,0,0,0.02); border-radius: 12px; margin-bottom: 3rem; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); }
+
+        /* 4. Wiki 磁贴分类 */
+        .wiki-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 50px; }
+        .wiki-card { padding: 20px; background: #fafafa; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: 0.2s; }
+        .wiki-card:hover { border-color: #007aff; background: #fff; transform: translateY(-2px); }
+        .wiki-card h3 { margin: 0 0 10px 0; font-size: 1.1rem; font-weight: 700; }
+        .wiki-card p { margin: 0; font-size: 14px; opacity: 0.5; line-height: 1.5; }
+
+        /* 5. 时间栏同步 */
+        .sidebar-archive { position: absolute; left: calc(100% + 50px); top: 0; width: 100px; }
+        .sidebar-archive h3 { font-size: 11px; opacity: 0.2; text-transform: uppercase; margin-bottom: 15px; }
+        .sidebar-archive ul { list-style: none; padding: 0; margin: 0; font-size: 12px; line-height: 2.2; }
+        .sidebar-archive a { color: inherit; text-decoration: none; opacity: 0.4; display: block; }
+        @media (max-width: 1150px) { .sidebar-archive { display: none; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="/" class="logo-wrapper">
+                <img src="/logo.png" alt="" class="site-logo" onerror="this.style.display='none'">
+                <span class="site-title">Ben Thinking</span>
+            </a>
+            <div class="nav-right">
+                <div class="search-wrapper">
+                    <form action="/" method="GET" style="margin:0;"><input type="text" name="s" class="search-box" placeholder="搜索..."></form>
+                </div>
+                <a href="/wiki" style="font-size:14px;font-weight:700;color:#007aff;text-decoration:none;">Wiki</a>
+                <a href="/about" style="font-size:14px;opacity:0.6;text-decoration:none;color:inherit;">关于</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <aside class="sidebar-archive">
+            <h3>Timeline</h3>
+            <ul>
+                {{ range (seq 2026 -1 2000) }}
+                <li><a href="/#{{ . }}">{{ . }}</a></li>
+                {{ end }}
+            </ul>
+        </aside>
+
+        <h1>Wiki</h1>
+
+        <div id="graph-container"></div>
+
+        <div class="wiki-grid">
+            {{ range .Sections }}
+            <a href="{{ .Permalink }}" class="wiki-card">
+                <h3>{{ .Title }}</h3>
+                <p>{{ T "view_collection" }} {{ len .Pages }} 篇文章</p>
+            </a>
+            {{ end }}
+        </div>
+    </main>
+
+    <script>
+        // 初始化星图逻辑
+        const initGraph = () => {
+            const container = document.getElementById('graph-container');
+            const data = {
+                nodes: [
+                    { id: 'Wiki', group: 1, size: 8 },
+                    {{ range .Pages }}
+                    { id: '{{ .Title }}', group: 2, size: 4, url: '{{ .Permalink }}' },
+                    {{ end }}
+                ],
+                links: [
+                    {{ range .Pages }}
+                    { source: 'Wiki', target: '{{ .Title }}' },
+                    {{ end }}
+                ]
+            };
+
+            const Graph = ForceGraph()(container)
+                .graphData(data)
+                .nodeLabel('id')
+                .nodeColor(node => node.group === 1 ? '#007aff' : '#ccc')
+                .nodeVal(node => node.size)
+                .linkColor(() => 'rgba(0,0,0,0.05)')
+                .onNodeClick(node => {
+                    if (node.url) window.location.href = node.url;
+                })
+                .width(container.offsetWidth)
+                .height(350);
+            
+            Graph.d3Force('charge').strength(-100);
+        };
+        window.onload = initGraph;
+    </script>
+</body>
+</html>
