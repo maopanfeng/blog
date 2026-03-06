@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.html.md",
+                "file": "layouts/index.html.md",
                 "mode": "source",
                 "source": false
               },
@@ -213,9 +213,9 @@
       "obsidian-shellcommands:Shell commands: Custom variables": false
     }
   },
-  "active": "d40e3543636017ce",
+  "active": "1ad7e28347236929",
   "lastOpenFiles": [
-    "index.html.md",
+    "layouts/index.html.md",
     "static/avatar.png",
     "static/favicon.ico",
     "layouts/partials/header.html",
