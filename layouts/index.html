@@ -6,50 +6,58 @@
     <title>Ben Thinking</title>
     <link rel="stylesheet" href="/main.css">
     <style>
-        /* 1. 基础极简：白底黑字 */
-        body { margin:0; padding:0; background:#fff; color:#000; font-family:-apple-system,BlinkMacSystemFont,sans-serif; -webkit-font-smoothing:antialiased; }
+        /* 1. 极致白底黑字：对齐 James Anderson 页面 */
+        body { margin:0; padding:0; min-height:100vh; background-color:#fff; color:#000; font-family:-apple-system,BlinkMacSystemFont,sans-serif; -webkit-font-smoothing:antialiased; }
         
-        /* 2. 导航栏：Logo 对齐内容区 */
-        header { position:fixed; top:0; left:0; right:0; height:80px; z-index:9999; background:rgba(255,255,255,0.9); backdrop-filter:blur(10px); border-bottom:1px solid rgba(0,0,0,0.05); }
-        .nav-container { max-width:720px; height:100%; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:0 24px; box-sizing:border-box; }
+        /* 2. 导航栏修复：强制容器在页面正中心，确保 Logo 与内容左对齐 */
+        header { position:fixed; top:0; left:0; right:0; height:80px; z-index:9999; background:rgba(255,255,255,0.9); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); border-bottom:1px solid rgba(0,0,0,0.05); }
+        .nav-container { 
+            max-width:720px; 
+            height:100%; 
+            margin: 0 auto !important; /* 强制居中 */
+            padding: 0 24px;
+            display:flex; 
+            align-items:center; 
+            justify-content:space-between; 
+            box-sizing:border-box; 
+        }
         
         .logo-wrapper { display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; }
         .site-logo { width:32px; height:32px; object-fit:contain; border-radius:6px; }
         .site-title { font-weight:800; font-size:1.2rem; letter-spacing:-0.03em; }
 
         .nav-right { display:flex; align-items:center; gap:20px; }
-        .search-wrapper { display:flex; align-items:center; background:rgba(0,0,0,0.04); border-radius:20px; padding:5px 12px; }
-        .search-box { background:transparent; border:none; font-size:13px; width:70px; outline:none; color:#000; }
+        .search-wrapper { display:flex; align-items:center; background:rgba(0,0,0,0.05); border-radius:20px; padding:5px 12px; }
+        .search-box { background:transparent; border:none; font-size:13px; width:80px; outline:none; color:#000; }
         .nav-link { font-size:14px; opacity:0.6; text-decoration:none; color:inherit; }
 
-        /* 3. 内容区布局 */
-        main { max-width:720px; margin:140px auto 0; padding:0 24px; position:relative; box-sizing:border-box; }
+        /* 3. 内容区：严格与 Header 容器宽度对齐 */
+        main { display:block; max-width:720px; margin:140px auto 0; padding:0 24px; position:relative; box-sizing:border-box; }
 
-        /* 4. Timeline 侧边栏：从 2026 到 2000，点击跳转 */
+        /* 4. Timeline：垂直排列，链接到年度分类 */
         .sidebar-archive { position:absolute; left:calc(100% + 50px); top:0; width:100px; }
-        .sidebar-archive h3 { font-size:11px; opacity:0.2; text-transform:uppercase; margin-bottom:12px; letter-spacing:1.5px; }
-        .sidebar-archive ul { list-style:none; padding:0; margin:0; font-size:12px; }
-        .sidebar-archive li { margin-bottom: 8px; }
+        .sidebar-archive h3 { font-size:11px; opacity:0.2; text-transform:uppercase; margin-bottom:15px; letter-spacing:1px; }
+        .sidebar-archive ul { list-style:none; padding:0; margin:0; }
+        .sidebar-archive li { margin-bottom: 10px; font-size:13px; }
         .sidebar-archive a { color:inherit; text-decoration:none; opacity:0.4; transition: opacity 0.2s; }
         .sidebar-archive a:hover { opacity:1; color:#007aff; }
-        
         @media(max-width:1150px) { .sidebar-archive { display:none; } }
 
-        /* 5. 文章项与折叠 */
-        .post-item { margin-bottom:50px; }
-        .post-title { font-size:1.8rem; font-weight:700; margin-bottom:0.8rem; display:block; text-decoration:none; color:inherit; line-height:1.3; }
-        .post-date { opacity:0.3; font-size:0.85rem; margin-bottom:1.5rem; }
+        /* 5. 文章：标题、折叠、间距 */
+        .post-item { margin-bottom: 50px; }
+        .post-title { font-size:1.85rem; font-weight:800; margin-bottom:0.8rem; display:block; text-decoration:none; color:inherit; line-height:1.2; letter-spacing:-0.02em; }
+        .post-date { opacity:0.25; font-size:0.85rem; margin-bottom:1.5rem; }
         
-        details { border: 1px solid rgba(0,0,0,0.05); border-radius: 8px; padding: 15px; background: rgba(0,0,0,0.01); }
+        details { border: 1px solid rgba(0,0,0,0.05); border-radius: 8px; padding: 15px; background: rgba(0,0,0,0.02); }
         summary { cursor: pointer; font-size: 14px; font-weight: 600; color: #007aff; outline: none; list-style: none; }
-        .post-summary { margin-top: 12px; line-height: 1.8; opacity: 0.8; font-size: 15px; }
+        .post-summary { margin-top: 12px; line-height: 1.8; opacity: 0.8; font-size: 16px; }
     </style>
 </head>
 <body>
     <header>
         <div class="nav-container">
             <a href="/" class="logo-wrapper">
-                <img src="/logo.png" alt="" class="site-logo" onerror="this.style.display='none'">
+                <img src="/logo.png" alt="Logo" class="site-logo" onerror="this.style.display='none'">
                 <span class="site-title">Ben Thinking</span>
             </a>
             <div class="nav-right">
