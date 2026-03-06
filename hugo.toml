@@ -1,15 +1,13 @@
 baseURL = 'https://maopanfeng.com/'
 languageCode = 'zh-cn'
-title = 'Ben Blog'
+title = 'Ben Thinking'
 theme = 'paper'
 
 [params]
     name = "Ben"
     description = "Complexity Investing"
-    # 开启搜索功能所需的参数 (根据 Paper 主题通常要求)
+    # 找回搜索的关键开关
     search = true 
-    # 如果你的 Wiki 有专门的样式，可以在这里定义
-    wiki = true
 
 [menu]
   [[menu.main]]
@@ -29,6 +27,6 @@ theme = 'paper'
     url = "/about"
     weight = 40
 
-# 确保搜索功能能生成索引文件
+# 必须生成 JSON，否则你的搜索功能无法运行
 [outputs]
   home = ["HTML", "RSS", "JSON"]
