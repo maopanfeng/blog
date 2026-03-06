@@ -1,6 +1,6 @@
 baseURL = 'https://maopanfeng.com/'
 languageCode = 'zh-cn'
-title = 'Ben Mao 的'
+title = 'Ben Mao Blog'
 theme = 'paper'
 
 # 
