@@ -1,7 +1,7 @@
 ---
 title: "James Anderson"
 date: 2023-01-01
-description: "Philosophy on Growth"
+keywords: ["极端非线性增长(The Power Law)", "复杂性思维", "演化逻辑", "长期主义", "传教士色彩", "跨学科的深度学习", "Charlie Munger", "Brian Arthur", "John "] 
 draft: false
 ---
 
