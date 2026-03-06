@@ -6,24 +6,15 @@
     <title>Ben Thinking</title>
     <link rel="stylesheet" href="/main.css">
     <style>
-        /* 1. 基础环境：白底黑字，极致留白 */
+        /* 1. 全局：对齐 About 的白底黑字 */
         body { margin:0; padding:0; min-height:100vh; display:flex; flex-direction:column; font-family:-apple-system,BlinkMacSystemFont,sans-serif; background-color: #fff; color: #000; -webkit-font-smoothing: antialiased; }
         
-        /* 2. 导航栏：强制居中容器，锁定 Logo 位置 */
+        /* 2. 导航：Logo 锁定在 720px 容器左侧 */
         header { position:fixed; top:0; left:0; right:0; height:100px; z-index:9999; background-color:rgba(255,255,255,0.95); backdrop-filter:blur(10px); border-bottom:1px solid rgba(0,0,0,0.05); }
-        .nav-container { 
-            max-width:720px; 
-            height:100%; 
-            margin: 0 auto !important; /* 强制 Logo 居中对齐 */
-            display:flex; 
-            align-items:center; 
-            justify-content:space-between; 
-            padding:0 24px; 
-            box-sizing:border-box; 
-        }
+        .nav-container { max-width:720px; height:100%; margin: 0 auto !important; display:flex; align-items:center; justify-content:space-between; padding:0 24px; box-sizing:border-box; }
         .site-title { font-weight:800; font-size:1.3rem; text-decoration:none; color:inherit; letter-spacing:-0.03em; }
 
-        .search-wrapper { display: flex; align-items: center; background: rgba(0,0,0,0.04); border-radius: 20px; padding: 6px 15px; }
+        .search-wrapper { display: flex; align-items: center; background: rgba(0,0,0,0.05); border-radius: 20px; padding: 6px 15px; }
         .search-box { background: transparent; border: none; font-size: 13px; width: 100px; outline: none; }
 
         /* 3. Timeline：补全 2026-2000 */
@@ -33,18 +24,25 @@
         .sidebar-archive a { color: inherit; text-decoration: none; }
         @media(max-width: 1250px) { .sidebar-archive { display: none; } }
 
-        /* 4. 文章列表：8rem 呼吸感 */
+        /* 4. 文章列表：移除折叠，使用超大空行 (12rem) 区分文章 */
         .post-list { margin-top: 180px; }
-        .post-item { margin-bottom: 8.5rem; } 
-        .post-title { font-size: 1.95rem; font-weight: 800; margin-bottom: 1.2rem; display: block; text-decoration:none; color:inherit; letter-spacing:-0.02em; }
-        .post-date { opacity: 0.25; font-size: 0.9rem; margin-bottom: 2.5rem; }
+        .post-item { margin-bottom: 12rem; } /* 极大的空行距离 */
+        .post-title { font-size: 2rem; font-weight: 800; margin-bottom: 1.2rem; display: block; text-decoration:none; color:inherit; letter-spacing:-0.02em; }
+        .post-date { opacity: 0.2; font-size: 0.9rem; margin-bottom: 2.5rem; letter-spacing: 0.1em; }
         
-        /* 5. 3句摘要折叠 */
-        .summary-content { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; opacity: 0.7; line-height: 1.9; font-size: 16px; }
-        details { margin-top: 20px; }
-        summary { cursor: pointer; color: #007aff; font-size: 14px; outline: none; list-style: none; padding: 10px 0; font-weight: 600; }
-        details[open] .summary-content { display: none; } 
-        .full-text { line-height: 2; opacity: 0.9; font-size: 16px; margin-top: 15px; }
+        /* 摘要预览：精准 3 句 */
+        .summary-content { 
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
+            opacity: 0.75;
+            line-height: 2; /* 宽大的行间距 */
+            font-size: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .read-more { font-size: 14px; font-weight: 700; color: #007aff; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -75,13 +73,7 @@
                 <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
                 <div class="post-date">{{ .Date.Format "2006-01-02" }}</div>
                 <div class="summary-content">{{ .Summary | plainify }}</div>
-                <details>
-                    <summary>展开摘要 ↓</summary>
-                    <div class="full-text">
-                        {{ .Summary }}
-                        <p style="margin-top:25px;"><a href="{{ .Permalink }}" style="color:#007aff;font-weight:700;text-decoration:none;">阅读全文 →</a></p>
-                    </div>
-                </details>
+                <a href="{{ .Permalink }}" class="read-more">阅读全文 →</a>
             </article>
             {{ end }}
         </div>
