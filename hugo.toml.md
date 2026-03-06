@@ -3,7 +3,7 @@ languageCode = 'zh-cn'
 title = 'Ben Mao Blog'
 theme = 'paper'
 
-# 
+
 [params]
     author = "Ben Mao"
     description = "投资、科技与生活"

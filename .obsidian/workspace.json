@@ -13,20 +13,6 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/posts/Alchian.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "Alchian"
-            }
-          },
-          {
-            "id": "d6d43296fbcfcc07",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "hugo.toml.md",
                 "mode": "source",
                 "source": true
@@ -35,8 +21,7 @@
               "title": "hugo.toml"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -201,12 +186,12 @@
       "obsidian-shellcommands:Shell commands: Custom variables": false
     }
   },
-  "active": "1ad7e28347236929",
+  "active": "5548f43d637c4251",
   "lastOpenFiles": [
-    "hugo.toml",
     "content/posts/Alchian.md",
-    "content/posts/BaillieGifford.md",
     "hugo.toml.md",
+    "hugo.toml",
+    "content/posts/BaillieGifford.md",
     "README.md",
     "Untitled.base",
     "Untitled 1.canvas",
@@ -241,7 +226,6 @@
     "layouts/_default",
     "content/posts",
     "themes/paper",
-    "archetypes",
-    "Templates"
+    "archetypes"
   ]
 }
