@@ -6,42 +6,29 @@
     <title>Ben Thinking</title>
     <link rel="stylesheet" href="/main.css">
     <style>
-        /* 1. 全局：对齐 About 的白底黑字 */
         body { margin:0; padding:0; min-height:100vh; display:flex; flex-direction:column; font-family:-apple-system,BlinkMacSystemFont,sans-serif; background-color: #fff; color: #000; -webkit-font-smoothing: antialiased; }
         
-        /* 2. 导航：Logo 锁定在 720px 容器左侧，解决飘走问题 */
+        /* 导航栏：强制居中并对齐内容区 */
         header { position:fixed; top:0; left:0; right:0; height:100px; z-index:9999; background-color:rgba(255,255,255,0.95); backdrop-filter:blur(10px); border-bottom:1px solid rgba(0,0,0,0.05); }
-        .nav-container { 
-            max-width:720px; 
-            height:100%; 
-            margin: 0 auto !important; /* 强制居中，Logo 随内容对齐 */
-            display:flex; 
-            align-items:center; 
-            justify-content:space-between; 
-            padding:0 24px; 
-            box-sizing:border-box; 
-        }
+        .nav-container { max-width:720px; height:100%; margin: 0 auto !important; display:flex; align-items:center; justify-content:space-between; padding:0 24px; box-sizing:border-box; }
         .site-title { font-weight:800; font-size:1.3rem; text-decoration:none; color:inherit; letter-spacing:-0.03em; }
 
         .search-wrapper { display: flex; align-items: center; background: rgba(0,0,0,0.05); border-radius: 20px; padding: 6px 15px; }
         .search-box { background: transparent; border: none; font-size: 13px; width: 100px; outline: none; }
 
-        /* 3. Timeline：补全 2026-2000 */
+        /* Timeline 补全 */
         .sidebar-archive { position:absolute; left:calc(100% + 60px); top:0; width:100px; }
         .sidebar-archive h3 { font-size:11px; opacity:0.2; text-transform:uppercase; margin-bottom:15px; letter-spacing:2px; }
         .sidebar-archive ul { list-style:none; padding:0; margin:0; font-size:12px; opacity:0.4; line-height:2.6; }
         .sidebar-archive a { color: inherit; text-decoration: none; }
         @media(max-width: 1200px) { .sidebar-archive { display: none; } }
 
-        /* 4. 文章列表：取消折叠，改用 15rem 的超级留白 */
-        .post-list { margin-top: 180px; }
-        .post-item { margin-bottom: 15rem; } /* 巨大的空行距离 */
         .post-title { font-size: 2.1rem; font-weight: 800; margin-bottom: 1.2rem; display: block; text-decoration:none; color:inherit; letter-spacing:-0.02em; }
         .post-date { opacity: 0.2; font-size: 0.9rem; margin-bottom: 3rem; letter-spacing: 0.1em; }
         
         .summary-content { 
             display: -webkit-box;
-            -webkit-line-clamp: 3; /* 依然保留3句预览 */
+            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;  
             overflow: hidden;
             opacity: 0.7;
@@ -50,8 +37,7 @@
             margin-bottom: 2.5rem;
         }
 
-        .read-more { font-size: 14px; font-weight: 700; color: #007aff; text-decoration: none; border-bottom: 1px solid transparent; transition: 0.2s; }
-        .read-more:hover { border-bottom: 1px solid #007aff; }
+        .read-more { font-size: 14px; font-weight: 700; color: #007aff; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -76,9 +62,9 @@
             </ul>
         </aside>
 
-        <div class="post-list">
+        <div class="post-list" style="margin-top: 200px;">
             {{ range .Site.RegularPages }}
-            <article class="post-item">
+            <article class="post-item" style="margin-bottom: 300px !important; display: block;">
                 <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
                 <div class="post-date">{{ .Date.Format "2006-01-02" }}</div>
                 <div class="summary-content">{{ .Summary | plainify }}</div>
