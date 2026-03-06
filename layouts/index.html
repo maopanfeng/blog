@@ -6,15 +6,15 @@
     <title>Ben Thinking</title>
     <link rel="stylesheet" href="/main.css">
     <style>
-        /* 1. 基础环境：纯白背景，对齐 About */
+        /* 1. 严格对齐 About：纯白背景，纯黑文字，极致通透 */
         body { margin:0; padding:0; min-height:100vh; display:flex; flex-direction:column; font-family:-apple-system,BlinkMacSystemFont,sans-serif; background-color: #fff; color: #000; -webkit-font-smoothing: antialiased; }
         
-        /* 2. 导航栏修复：必须强制设置 margin: 0 auto 且宽度与 main 一致 */
+        /* 2. 导航栏修复：将 Logo 锁定在 720px 内容区正上方，不再飘到最左边 */
         header { position:fixed; top:0; left:0; right:0; height:100px; z-index:9999; background-color:rgba(255,255,255,0.95); backdrop-filter:blur(10px); border-bottom:1px solid rgba(0,0,0,0.05); }
         .nav-container { 
-            max-width:720px; /* 严格对齐下方内容区宽度 */
+            max-width:720px; 
             height:100%; 
-            margin: 0 auto; /* 这行是关键：确保导航栏内容居中，不飘向两边 */
+            margin: 0 auto; /* 这行确保 Logo 和内容垂直对齐 */
             display:flex; 
             align-items:center; 
             justify-content:space-between; 
@@ -23,10 +23,10 @@
         }
         .site-title { font-weight:800; font-size:1.3rem; text-decoration:none; color:inherit; letter-spacing:-0.03em; }
 
-        .search-wrapper { display: flex; align-items: center; background: rgba(0,0,0,0.05); border-radius: 20px; padding: 6px 15px; }
+        .search-wrapper { display: flex; align-items: center; background: rgba(0,0,0,0.04); border-radius: 20px; padding: 6px 15px; }
         .search-box { background: transparent; border: none; font-size: 13px; width: 100px; outline: none; }
 
-        /* 3. Timeline 侧边栏：补全 2026-2000 */
+        /* 3. Timeline：补全 2026-2000，垂直列表 */
         .sidebar-archive { position:absolute; left:calc(100% + 60px); top:0; width:100px; }
         .sidebar-archive h3 { font-size:11px; opacity:0.2; text-transform:uppercase; margin-bottom:15px; letter-spacing:2px; }
         .sidebar-archive ul { list-style:none; padding:0; margin:0; font-size:12px; opacity:0.4; line-height:2.6; }
@@ -34,100 +34,13 @@
         .sidebar-archive a:hover { opacity:1; color: #007aff; }
         @media(max-width: 1250px) { .sidebar-archive { display: none; } }
 
-        /* 4. 文章列表：超级留白 (8rem) */
+        /* 4. 文章列表：增加 8rem 的超级间距，对齐 About 的呼吸感 */
         .post-list { margin-top: 180px; }
         .post-item { margin-bottom: 8rem; } 
         .post-title { font-size: 1.9rem; font-weight: 800; margin-bottom: 1.2rem; display: block; text-decoration:none; color:inherit; letter-spacing:-0.02em; }
         .post-date { opacity: 0.25; font-size: 0.9rem; margin-bottom: 2.5rem; }
         
-        /* 5.
-cat <<'EOF' > ~/Documents/obsidian/layouts/index.html
-<!doctype html>
-<html lang="zh-cn">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <title>Ben Thinking</title>
-    <link rel="stylesheet" href="/main.css">
-    <style>
-        /* 1. 基础环境：纯白背景，对齐 About */
-        body { margin:0; padding:0; min-height:100vh; display:flex; flex-direction:column; font-family:-apple-system,BlinkMacSystemFont,sans-serif; background-color: #fff; color: #000; -webkit-font-smoothing: antialiased; }
-        
-        /* 2. 导航栏修复：必须强制设置 margin: 0 auto 且宽度与 main 一致 */
-        header { position:fixed; top:0; left:0; right:0; height:100px; z-index:9999; background-color:rgba(255,255,255,0.95); backdrop-filter:blur(10px); border-bottom:1px solid rgba(0,0,0,0.05); }
-        .nav-container { 
-            max-width:720px; /* 严格对齐下方内容区宽度 */
-            height:100%; 
-            margin: 0 auto; /* 这行是关键：确保导航栏内容居中，不飘向两边 */
-            display:flex; 
-            align-items:center; 
-            justify-content:space-between; 
-            padding:0 24px; 
-            box-sizing:border-box; 
-        }
-        .site-title { font-weight:800; font-size:1.3rem; text-decoration:none; color:inherit; letter-spacing:-0.03em; }
-
-        .search-wrapper { display: flex; align-items: center; background: rgba(0,0,0,0.05); border-radius: 20px; padding: 6px 15px; }
-        .search-box { background: transparent; border: none; font-size: 13px; width: 100px; outline: none; }
-
-        /* 3. Timeline 侧边栏：补全 2026-2000 */
-        .sidebar-archive { position:absolute; left:calc(100% + 60px); top:0; width:100px; }
-        .sidebar-archive h3 { font-size:11px; opacity:0.2; text-transform:uppercase; margin-bottom:15px; letter-spacing:2px; }
-        .sidebar-archive ul { list-style:none; padding:0; margin:0; font-size:12px; opacity:0.4; line-height:2.6; }
-        .sidebar-archive a { color: inherit; text-decoration: none; }
-        .sidebar-archive a:hover { opacity:1; color: #007aff; }
-        @media(max-width: 1250px) { .sidebar-archive { display: none; } }
-
-        /* 4. 文章列表：超级留白 (8rem) */
-        .post-list { margin-top: 180px; }
-        .post-item { margin-bottom: 8rem; } 
-        .post-title { font-size: 1.9rem; font-weight: 800; margin-bottom: 1.2rem; display: block; text-decoration:none; color:inherit; letter-spacing:-0.02em; }
-        .post-date { opacity: 0.25; font-size: 0.9rem; margin-bottom: 2.5rem; }
-        
-        /* 5.cat <<'EOF' > ~/Documents/obsidian/layouts/index.html
-<!doctype html>
-<html lang="zh-cn">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <title>Ben Thinking</title>
-    <link rel="stylesheet" href="/main.css">
-    <style>
-        /* 1. 基础环境：纯白背景，对齐 About */
-        body { margin:0; padding:0; min-height:100vh; display:flex; flex-direction:column; font-family:-apple-system,BlinkMacSystemFont,sans-serif; background-color: #fff; color: #000; -webkit-font-smoothing: antialiased; }
-        
-        /* 2. 导航栏修复：必须强制设置 margin: 0 auto 且宽度与 main 一致 */
-        header { position:fixed; top:0; left:0; right:0; height:100px; z-index:9999; background-color:rgba(255,255,255,0.95); backdrop-filter:blur(10px); border-bottom:1px solid rgba(0,0,0,0.05); }
-        .nav-container { 
-            max-width:720px; /* 严格对齐下方内容区宽度 */
-            height:100%; 
-            margin: 0 auto; /* 这行是关键：确保导航栏内容居中，不飘向两边 */
-            display:flex; 
-            align-items:center; 
-            justify-content:space-between; 
-            padding:0 24px; 
-            box-sizing:border-box; 
-        }
-        .site-title { font-weight:800; font-size:1.3rem; text-decoration:none; color:inherit; letter-spacing:-0.03em; }
-
-        .search-wrapper { display: flex; align-items: center; background: rgba(0,0,0,0.05); border-radius: 20px; padding: 6px 15px; }
-        .search-box { background: transparent; border: none; font-size: 13px; width: 100px; outline: none; }
-
-        /* 3. Timeline 侧边栏：补全 2026-2000 */
-        .sidebar-archive { position:absolute; left:calc(100% + 60px); top:0; width:100px; }
-        .sidebar-archive h3 { font-size:11px; opacity:0.2; text-transform:uppercase; margin-bottom:15px; letter-spacing:2px; }
-        .sidebar-archive ul { list-style:none; padding:0; margin:0; font-size:12px; opacity:0.4; line-height:2.6; }
-        .sidebar-archive a { color: inherit; text-decoration: none; }
-        .sidebar-archive a:hover { opacity:1; color: #007aff; }
-        @media(max-width: 1250px) { .sidebar-archive { display: none; } }
-
-        /* 4. 文章列表：超级留白 (8rem) */
-        .post-list { margin-top: 180px; }
-        .post-item { margin-bottom: 8rem; } 
-        .post-title { font-size: 1.9rem; font-weight: 800; margin-bottom: 1.2rem; display: block; text-decoration:none; color:inherit; letter-spacing:-0.02em; }
-        .post-date { opacity: 0.25; font-size: 0.9rem; margin-bottom: 2.5rem; }
-        
-        /* 5. 3句摘要折叠 */
+        /* 5. 3句预览与折叠 */
         .summary-content { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; opacity: 0.7; line-height: 1.9; font-size: 16px; }
         details { margin-top: 20px; }
         summary { cursor: pointer; color: #007aff; font-size: 14px; outline: none; list-style: none; padding: 10px 0; font-weight: 600; }
@@ -152,7 +65,7 @@ cat <<'EOF' > ~/Documents/obsidian/layouts/index.html
             <h3>Timeline</h3>
             <ul>
                 {{ range (seq 2026 -1 2000) }}
-                <li><a href="/{{ . }}">{{ . }}</a></li>
+                <li><a href="/{{ . }}/">{{ . }}</a></li>
                 {{ end }}
             </ul>
         </aside>
