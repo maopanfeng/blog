@@ -19,7 +19,6 @@
         main { width: 100%; max-width: 720px; margin: 140px auto 100px; padding: 0 24px; position: relative; box-sizing: border-box; }
         h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 3rem; letter-spacing: -0.02em; }
         
-        /* 增加星图高度，去掉多余边距 */
         #graph-container { width: 100%; height: 600px; margin: 0; cursor: grab; background: #fff; }
         
         .sidebar-archive { position: absolute; left: calc(100% + 50px); top: 0; width: 100px; }
@@ -60,22 +59,26 @@
                 <script>
                     window.onload = function() {
                         const container = document.getElementById('graph-container');
-                        const nodes = [{ id: 'Wiki', name: 'Wiki', group: 1, size: 14 }];
+                        const nodes = [{ id: 'Wiki', name: 'Wiki', group: 1, size: 12 }];
                         const links = [];
                         const nodesSet = new Set(['Wiki']);
 
                         {{ range .Site.RegularPages }}
                             {{ if .Params.keywords }}
+                                // 1. 创建文章节点并连接到 Wiki
                                 if (!nodesSet.has('{{ .Title }}')) {
-                                    nodes.push({ id: '{{ .Title }}', name: '{{ .Title }}', group: 2, size: 10, url: '{{ .Permalink }}' });
+                                    nodes.push({ id: '{{ .Title }}', name: '{{ .Title }}', group: 2, size: 8, url: '{{ .Permalink }}' });
                                     links.push({ source: 'Wiki', target: '{{ .Title }}' });
                                     nodesSet.add('{{ .Title }}');
                                 }
+                                
+                                // 2. 创建关键词节点并连接到当前【文章标题】
                                 {{ range .Params.keywords }}
                                     if (!nodesSet.has('{{ . }}')) {
-                                        nodes.push({ id: '{{ . }}', name: '{{ . }}', group: 3, size: 6 });
+                                        nodes.push({ id: '{{ . }}', name: '{{ . }}', group: 3, size: 5 });
                                         nodesSet.add('{{ . }}');
                                     }
+                                    // 核心修正：source 指向文章标题而不是 Wiki
                                     links.push({ source: '{{ $.Title }}', target: '{{ . }}' });
                                 {{ end }}
                             {{ end }}
@@ -83,36 +86,31 @@
 
                         const Graph = ForceGraph()(container)
                             .graphData({ nodes, links })
+                            .nodeLabel(null)
                             .nodeCanvasObject((node, ctx, globalScale) => {
                                 const label = node.name;
-                                // 基础尺寸随 group 变化
-                                const baseSize = node.size;
-                                const fontSize = 12 / globalScale;
-                                
-                                // 绘制圆点
+                                const radius = node.size / 2;
                                 ctx.beginPath();
-                                ctx.arc(node.x, node.y, baseSize / 2, 0, 2 * Math.PI, false);
+                                ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI, false);
                                 ctx.fillStyle = node.group === 1 ? '#007aff' : (node.group === 2 ? '#000' : '#ccc');
                                 ctx.fill();
 
-                                // 强制绘制文字（常驻）
-                                ctx.font = `bold ${fontSize}px -apple-system, sans-serif`;
+                                const fontSize = 11 / globalScale;
+                                ctx.font = `${fontSize}px -apple-system, sans-serif`;
                                 ctx.textAlign = 'center';
-                                ctx.textBaseline = 'middle';
+                                ctx.textBaseline = 'top';
                                 ctx.fillStyle = node.group === 3 ? '#999' : '#333';
-                                ctx.fillText(label, node.x, node.y + baseSize + 2);
+                                ctx.fillText(label, node.x, node.y + radius + (3 / globalScale));
                             })
-                            .linkColor(() => '#f0f0f0')
-                            .linkWidth(1.5)
-                            .linkDirectionalParticles(2)
-                            .linkDirectionalParticleSpeed(0.005)
+                            .linkColor(() => '#f2f2f2')
+                            .linkWidth(1)
+                            .linkDirectionalParticles(1)
+                            .linkDirectionalParticleSpeed(0.003)
                             .width(container.offsetWidth).height(600)
                             .onNodeClick(node => { if(node.url) window.location.href = node.url; });
 
-                        // 增强物理引力：让点散开，文字互不重叠
                         Graph.d3Force('charge').strength(-300);
-                        Graph.d3Force('link').distance(80);
-                        Graph.d3Force('center').strength(0.15);
+                        Graph.d3Force('link').distance(60);
                     };
                 </script>
             {{ else }}
