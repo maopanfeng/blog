@@ -20,8 +20,19 @@
               "icon": "lucide-file",
               "title": "2026-01-01"
             }
+          },
+          {
+            "id": "80c04904f483c7cf",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -186,8 +197,9 @@
       "obsidian-shellcommands:Shell commands: Custom variables": false
     }
   },
-  "active": "1ad7e28347236929",
+  "active": "80c04904f483c7cf",
   "lastOpenFiles": [
+    "2026-01-01.md",
     "themes/paper/assets/main.css",
     "themes/paper/assets/custom.css",
     "themes/paper/assets/app.css",
@@ -198,7 +210,6 @@
     "themes/paper/i18n/ru.yaml",
     "themes/paper/i18n/pt.yaml",
     "themes/paper/i18n/pl.yaml",
-    "themes/paper/i18n/oc.yaml",
     "themes/paper/static/twitter.svg",
     "themes/paper/static/threads.svg",
     "themes/paper/static/theme.svg",
