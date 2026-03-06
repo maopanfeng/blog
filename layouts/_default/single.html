@@ -19,10 +19,9 @@
         main { width: 100%; max-width: 720px; margin: 140px auto 100px; padding: 0 24px; position: relative; box-sizing: border-box; }
         h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 3rem; letter-spacing: -0.02em; }
         
-        /* 星图容器：移除边框，使用通透感设计 */
-        #graph-container { width: 100%; height: 600px; margin: 0 0 40px 0; cursor: grab; }
-        #graph-container:active { cursor: grabbing; }
-
+        /* 增加星图高度，去掉多余边距 */
+        #graph-container { width: 100%; height: 600px; margin: 0; cursor: grab; background: #fff; }
+        
         .sidebar-archive { position: absolute; left: calc(100% + 50px); top: 0; width: 100px; }
         .sidebar-archive h3 { font-size: 11px; opacity: 0.2; text-transform: uppercase; margin-bottom: 15px; }
         .sidebar-archive ul { list-style: none; padding: 0; margin: 0; font-size: 12px; line-height: 2.2; }
@@ -61,20 +60,20 @@
                 <script>
                     window.onload = function() {
                         const container = document.getElementById('graph-container');
-                        const nodes = [{ id: 'Wiki', name: 'WIKI', group: 1, val: 15 }];
+                        const nodes = [{ id: 'Wiki', name: 'Wiki', group: 1, size: 14 }];
                         const links = [];
                         const nodesSet = new Set(['Wiki']);
 
                         {{ range .Site.RegularPages }}
                             {{ if .Params.keywords }}
                                 if (!nodesSet.has('{{ .Title }}')) {
-                                    nodes.push({ id: '{{ .Title }}', name: '{{ .Title }}', group: 2, val: 8, url: '{{ .Permalink }}' });
+                                    nodes.push({ id: '{{ .Title }}', name: '{{ .Title }}', group: 2, size: 10, url: '{{ .Permalink }}' });
                                     links.push({ source: 'Wiki', target: '{{ .Title }}' });
                                     nodesSet.add('{{ .Title }}');
                                 }
                                 {{ range .Params.keywords }}
                                     if (!nodesSet.has('{{ . }}')) {
-                                        nodes.push({ id: '{{ . }}', name: '{{ . }}', group: 3, val: 4 });
+                                        nodes.push({ id: '{{ . }}', name: '{{ . }}', group: 3, size: 6 });
                                         nodesSet.add('{{ . }}');
                                     }
                                     links.push({ source: '{{ $.Title }}', target: '{{ . }}' });
@@ -84,36 +83,36 @@
 
                         const Graph = ForceGraph()(container)
                             .graphData({ nodes, links })
-                            .nodeRelSize(1)
                             .nodeCanvasObject((node, ctx, globalScale) => {
                                 const label = node.name;
-                                const fontSize = 14 / globalScale;
-                                ctx.font = `${fontSize}px Inter, -apple-system, sans-serif`;
+                                // 基础尺寸随 group 变化
+                                const baseSize = node.size;
+                                const fontSize = 12 / globalScale;
                                 
-                                // 画圆点
+                                // 绘制圆点
                                 ctx.beginPath();
-                                ctx.arc(node.x, node.y, node.val / 2, 0, 2 * Math.PI, false);
-                                ctx.fillStyle = node.group === 1 ? '#007aff' : (node.group === 2 ? '#000' : '#bbb');
+                                ctx.arc(node.x, node.y, baseSize / 2, 0, 2 * Math.PI, false);
+                                ctx.fillStyle = node.group === 1 ? '#007aff' : (node.group === 2 ? '#000' : '#ccc');
                                 ctx.fill();
 
-                                // 画常驻文字
-                                if (globalScale > 1.5) { // 缩放足够大时才显示小标签
-                                    ctx.textAlign = 'center';
-                                    ctx.textBaseline = 'middle';
-                                    ctx.fillStyle = '#666';
-                                    ctx.fillText(label, node.x, node.y + (node.val / 2) + 5);
-                                }
+                                // 强制绘制文字（常驻）
+                                ctx.font = `bold ${fontSize}px -apple-system, sans-serif`;
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'middle';
+                                ctx.fillStyle = node.group === 3 ? '#999' : '#333';
+                                ctx.fillText(label, node.x, node.y + baseSize + 2);
                             })
+                            .linkColor(() => '#f0f0f0')
+                            .linkWidth(1.5)
                             .linkDirectionalParticles(2)
                             .linkDirectionalParticleSpeed(0.005)
-                            .linkDirectionalParticleWidth(1.5)
-                            .linkColor(() => '#eee')
                             .width(container.offsetWidth).height(600)
                             .onNodeClick(node => { if(node.url) window.location.href = node.url; });
 
-                        // 注入动力场
-                        Graph.d3Force('charge').strength(-200);
-                        Graph.d3Force('link').distance(50);
+                        // 增强物理引力：让点散开，文字互不重叠
+                        Graph.d3Force('charge').strength(-300);
+                        Graph.d3Force('link').distance(80);
+                        Graph.d3Force('center').strength(0.15);
                     };
                 </script>
             {{ else }}
