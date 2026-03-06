@@ -21,8 +21,8 @@
         .post-date { opacity: 0.25; font-size: 0.9rem; margin-bottom: 1.5rem; }
         .post-summary { line-height: 1.8; opacity: 0.7; font-size: 16px; }
 
-        /* 底部版权声明 */
-        footer { width: 100%; max-width: 720px; padding: 80px 24px 40px; text-align: left; box-sizing: border-box; font-size: 12px; opacity: 0.3; letter-spacing: 0.02em; }
+        /* 修复：底部版权声明居中 */
+        footer { width: 100%; padding: 100px 24px 60px; text-align: center; box-sizing: border-box; font-size: 12px; opacity: 0.2; letter-spacing: 0.05em; }
 
         .sidebar-archive { position: absolute; left: calc(100% + 50px); top: 0; width: 100px; }
         .sidebar-archive h3 { font-size: 11px; opacity: 0.2; text-transform: uppercase; margin-bottom: 15px; }
@@ -62,9 +62,9 @@
             </ul>
         </aside>
 
-        <div class="post-list">
-            {{ range (where .Site.RegularPages "Title" "!=" "Wiki") }}
-                {{ if and (ne (.Date.Format "2006") "0001") (ne .Title "") }}
+        <div class="post-list" id="post-container">
+            {{ range .Site.RegularPages }}
+                {{ if and (ne .Title "Wiki") (ne (.Date.Format "2006") "0001") (ne .Title "") }}
                 <article class="post-item" data-year="{{ .Date.Format "2006" }}">
                     <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
                     <div class="post-date">{{ .Date.Format "2006-01-02" }}</div>
@@ -87,7 +87,8 @@
                 btn.classList.remove('active'); 
                 btn.style.opacity = "0.4";
                 if (btn.innerText === year) { 
-                    btn.classList.add('active'); btn.style.opacity = "1"; 
+                    btn.classList.add('active'); 
+                    btn.style.opacity = "1"; 
                 }
             });
             posts.forEach(post => {
