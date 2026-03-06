@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Ben Thinking</title>
     <style>
-        body { margin: 0; padding: 0; background: #fff; color: #000; font-family: -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; align-items: center; }
+        body { margin: 0; padding: 0; background: #fff; color: #000; font-family: -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
         header { position: fixed; top: 0; left: 0; right: 0; height: 80px; z-index: 9999; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: center; }
         .nav-container { width: 100%; max-width: 720px; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; box-sizing: border-box; }
         .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
@@ -14,11 +14,16 @@
         .nav-right { display: flex; align-items: center; gap: 20px; }
         .search-wrapper { display: flex; align-items: center; background: rgba(0,0,0,0.05); border-radius: 20px; padding: 6px 15px; }
         .search-box { background: transparent; border: none; font-size: 13px; width: 80px; outline: none; }
-        main { width: 100%; max-width: 720px; margin: 140px auto 0; padding: 0 24px; position: relative; box-sizing: border-box; }
-        .post-item { margin-bottom: 50px; display: block; }
+        
+        main { width: 100%; max-width: 720px; margin: 140px auto 0; padding: 0 24px; position: relative; box-sizing: border-box; flex: 1; }
+        .post-item { margin-bottom: 60px; display: block; }
         .post-title { font-size: 1.85rem; font-weight: 800; margin-bottom: 0.8rem; display: block; text-decoration: none; color: inherit; line-height: 1.3; letter-spacing: -0.02em; }
         .post-date { opacity: 0.25; font-size: 0.9rem; margin-bottom: 1.5rem; }
-        .post-summary { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.8; opacity: 0.7; font-size: 16px; }
+        .post-summary { line-height: 1.8; opacity: 0.7; font-size: 16px; }
+
+        /* 底部版权声明 */
+        footer { width: 100%; max-width: 720px; padding: 80px 24px 40px; text-align: left; box-sizing: border-box; font-size: 12px; opacity: 0.3; letter-spacing: 0.02em; }
+
         .sidebar-archive { position: absolute; left: calc(100% + 50px); top: 0; width: 100px; }
         .sidebar-archive h3 { font-size: 11px; opacity: 0.2; text-transform: uppercase; margin-bottom: 15px; }
         .sidebar-archive ul { list-style: none; padding: 0; margin: 0; font-size: 12px; line-height: 2.2; }
@@ -58,25 +63,32 @@
         </aside>
 
         <div class="post-list">
-            {{ range .Site.RegularPages }}
-                {{ if and (ne .Title "Wiki") (ne (.Date.Format "2006") "0001") (ne .Title "") }}
+            {{ range (where .Site.RegularPages "Title" "!=" "Wiki") }}
+                {{ if and (ne (.Date.Format "2006") "0001") (ne .Title "") }}
                 <article class="post-item" data-year="{{ .Date.Format "2006" }}">
                     <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
                     <div class="post-date">{{ .Date.Format "2006-01-02" }}</div>
-                    <div class="post-summary">{{ .Summary | plainify }}</div>
+                    <div class="post-summary">{{ .Summary | plainify | truncate 150 }}</div>
                 </article>
                 {{ end }}
             {{ end }}
         </div>
     </main>
 
+    <footer>
+        <p>© 2026 Ben Thinking. All Rights Reserved.</p>
+    </footer>
+
     <script>
         function filterYear(year) {
             const posts = document.querySelectorAll('.post-item');
             const btns = document.querySelectorAll('.year-btn');
             btns.forEach(btn => {
-                btn.classList.remove('active'); btn.style.opacity = "0.4";
-                if (btn.innerText === year) { btn.classList.add('active'); btn.style.opacity = "1"; }
+                btn.classList.remove('active'); 
+                btn.style.opacity = "0.4";
+                if (btn.innerText === year) { 
+                    btn.classList.add('active'); btn.style.opacity = "1"; 
+                }
             });
             posts.forEach(post => {
                 post.style.display = (year === 'all' || post.getAttribute('data-year') === year) ? 'block' : 'none';
