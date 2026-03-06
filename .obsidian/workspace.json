@@ -41,7 +41,7 @@
               "state": {
                 "file": "layouts/index.html.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "index.html"
@@ -213,7 +213,7 @@
       "obsidian-shellcommands:Shell commands: Custom variables": false
     }
   },
-  "active": "1ad7e28347236929",
+  "active": "d40e3543636017ce",
   "lastOpenFiles": [
     "layouts/index.html.md",
     "static/avatar.png",
