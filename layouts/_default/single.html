@@ -6,13 +6,13 @@
     <title>{{ .Title }} - Ben Thinking</title>
     <script src="https://unpkg.com/force-graph"></script>
     <style>
+        /* 保持居中、白底、锁定对齐 */
         body { margin: 0; padding: 0; background: #fff; color: #000; font-family: -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; align-items: center; }
         header { position: fixed; top: 0; left: 0; right: 0; height: 80px; z-index: 9999; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: center; }
         .nav-container { width: 100%; max-width: 720px; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; box-sizing: border-box; }
         .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
         .site-logo { width: 32px; height: 32px; object-fit: contain; border-radius: 6px; }
         .site-title { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.03em; }
-        
         .nav-right { display: flex; align-items: center; gap: 20px; }
         .search-wrapper { display: flex; align-items: center; background: rgba(0,0,0,0.05); border-radius: 20px; padding: 6px 15px; }
         .search-box { background: transparent; border: none; font-size: 13px; width: 80px; outline: none; }
@@ -21,7 +21,8 @@
         h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; letter-spacing: -0.02em; }
         .post-date { opacity: 0.25; font-size: 0.9rem; margin-bottom: 3rem; }
         
-        #graph-container { width: 100%; height: 500px; background: #fafafa; border-radius: 12px; margin: 20px 0 40px; border: 1px solid #eee; }
+        /* 星图容器：浅灰色背景突出极简感 */
+        #graph-container { width: 100%; height: 500px; background: #fdfdfd; border-radius: 12px; margin: 20px 0 40px; border: 1px solid #f0f0f0; }
         
         .sidebar-archive { position: absolute; left: calc(100% + 50px); top: 0; width: 100px; }
         .sidebar-archive h3 { font-size: 11px; opacity: 0.2; text-transform: uppercase; margin-bottom: 15px; }
@@ -41,7 +42,7 @@
                 <div class="search-wrapper">
                     <form action="/" method="GET" style="margin:0;"><input type="text" name="s" class="search-box" placeholder="搜索..."></form>
                 </div>
-                <a href="/wiki" style="font-size:14px; opacity:{{ if eq .Title "Wiki" }}1{{ else }}0.6{{ end }}; color:{{ if eq .Title "Wiki" }}#007aff{{ else }}inherit{{ end }}; text-decoration:none; font-weight:{{ if eq .Title "Wiki" }}700{{ else }}normal{{ end }};">Wiki</a>
+                <a href="/wiki" style="font-size:14px; opacity:{{ if eq .Title "Wiki" }}1{{ else }}0.6{{ end }}; color:{{ if eq .Title "Wiki" }}#007aff{{ else }}inherit{{ end }}; text-decoration:none; font-weight:700;">Wiki</a>
                 <a href="/about" style="font-size:14px; opacity:0.6; text-decoration:none; color:inherit;">关于</a>
             </div>
         </div>
@@ -58,7 +59,7 @@
         </aside>
 
         <h1>{{ .Title }}</h1>
-        <div class="post-date">{{ .Date.Format "2006-01-02" }}</div>
+        {{ if not (eq .Title "Wiki") }}<div class="post-date">{{ .Date.Format "2006-01-02" }}</div>{{ end }}
 
         <div class="content">
             {{ if or (eq .Title "Wiki") (in .Permalink "wiki") }}
@@ -68,42 +69,48 @@
                         const container = document.getElementById('graph-container');
                         const nodes = [{ id: 'Wiki', group: 1, size: 12 }];
                         const links = [];
-                        const seenKeywords = new Set();
+                        const nodesSet = new Set(['Wiki']);
 
                         {{ range .Site.RegularPages }}
                             {{ if .Params.keywords }}
-                                // 为每篇文章创建节点
-                                nodes.push({ id: '{{ .Title }}', group: 2, size: 6, url: '{{ .Permalink }}' });
-                                links.push({ source: 'Wiki', target: '{{ .Title }}' });
+                                // 1. 先把文章本身作为节点加入
+                                if (!nodesSet.has('{{ .Title }}')) {
+                                    nodes.push({ id: '{{ .Title }}', group: 2, size: 7, url: '{{ .Permalink }}' });
+                                    links.push({ source: 'Wiki', target: '{{ .Title }}' });
+                                    nodesSet.add('{{ .Title }}');
+                                }
 
+                                // 2. 把文章定义的 keywords 作为子节点挂载
                                 {{ range .Params.keywords }}
-                                    // 为关键词创建节点并连接
-                                    if (!seenKeywords.has('{{ . }}')) {
+                                    if (!nodesSet.has('{{ . }}')) {
                                         nodes.push({ id: '{{ . }}', group: 3, size: 4 });
-                                        seenKeywords.add('{{ . }}');
+                                        nodesSet.add('{{ . }}');
                                     }
                                     links.push({ source: '{{ $.Title }}', target: '{{ . }}' });
                                 {{ end }}
                             {{ end }}
                         {{ end }}
 
-                        ForceGraph()(container)
+                        const Graph = ForceGraph()(container)
                             .graphData({ nodes, links })
                             .nodeColor(n => {
-                                if(n.group === 1) return '#007aff'; // 中心蓝
-                                if(n.group === 2) return '#333';    // 文章黑
-                                return '#ccc';                      // 词条灰
+                                if(n.group === 1) return '#007aff'; // 中心：蓝
+                                if(n.group === 2) return '#000000'; // 文章：黑
+                                return '#e0e0e0';                   // 词条：淡灰
                             })
                             .nodeVal(n => n.size)
                             .nodeLabel('id')
-                            .linkDirectionalParticles(2)
-                            .linkDirectionalParticleSpeed(0.005)
+                            .linkDirectionalParticles(1)
+                            .linkDirectionalParticleSpeed(0.004)
+                            .linkColor(() => '#f0f0f0')
                             .width(container.offsetWidth).height(500)
                             .onNodeClick(n => { if(n.url) window.location.href = n.url; });
+                        
+                        Graph.d3Force('charge').strength(-150);
                     };
                 </script>
             {{ else }}
-                {{ .Content }}
+                <div style="line-height:1.8; opacity:0.9;">{{ .Content }}</div>
             {{ end }}
         </div>
     </main>
