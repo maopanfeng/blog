@@ -8,7 +8,7 @@ theme = 'paper'
     description = "投资、科技与生活"
 
 [author]
-    name = "Tony Mao"
+    name = "BenMao"
 
 [site]
     title = "Ben Mao Blog"
