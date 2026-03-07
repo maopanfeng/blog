@@ -28,6 +28,12 @@ draft: false
 5.  **跨学科的深度学习**
     在 Anderson 看来，投资回报是知识底蕴的副产品。一个优秀的投资者应当阅读生物学、物理学和历史，从中洞察人类社会能量转换与信息传递的深层逻辑。
 
+6. **Outliers**
+
+7. **报酬递增（Increasing Returns）**
+
+8. **深度转型（Deep Transitions）**
+
 ---
 
 **Aberration or Premonition?《是异常还是预兆？》2018**
