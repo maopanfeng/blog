@@ -7,6 +7,22 @@ draft: false
 Sheer Toughness
 Founder Mode 
 
+---
+## Core Philosophies
+
+
+
+If you are diving into his archives, these are the concepts he is most famous for:
+
+"Make something people want": The official motto of Y Combinator and the bedrock of his startup advice.
+
+Relentless Resourcefulness: The quality he looks for most in founders—the ability to find a way to win regardless of obstacles.
+
+Do Things that Don't Scale: The counter-intuitive advice that early-stage startups should focus on manual, unscalable tasks to acquire their first users.
+
+Keep Your Identity Small: The idea that the more "labels" you attach to yourself, the less able you are to think clearly about new or conflicting information.
+
+
 
 
 ---
