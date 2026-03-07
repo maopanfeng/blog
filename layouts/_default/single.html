@@ -24,8 +24,6 @@
         .content { line-height: 1.8; opacity: 0.9; font-size: 17px; }
         
         #graph-container { width: 100%; height: 600px; margin: 0; cursor: grab; background: #fff; }
-
-        /* 底部版权声明：保持全站统一居中 */
         footer { width: 100%; padding: 100px 24px 60px; text-align: center; box-sizing: border-box; font-size: 12px; opacity: 0.2; letter-spacing: 0.05em; }
 
         .sidebar-archive { position: absolute; left: calc(100% + 50px); top: 0; width: 100px; }
@@ -45,8 +43,8 @@
             <div class="nav-right">
                 <div class="search-wrapper">
                     <form action="https://www.google.com/search" method="get" target="_blank" style="margin:0; display:flex;">
-                        <input type="hidden" name="q" value="site:maopanfeng.com">
-                        <input type="text" name="q" class="search-box" placeholder="搜索...">
+                        <input type="hidden" name="as_sitesearch" value="maopanfeng.com">
+                        <input type="text" name="q" class="search-box" placeholder="搜索..." required>
                     </form>
                 </div>
                 <a href="/wiki" style="font-size:14px; color:{{ if or (eq .Title "Wiki") (in .Permalink "wiki") }}#007aff{{ else }}inherit{{ end }}; font-weight:{{ if or (eq .Title "Wiki") (in .Permalink "wiki") }}700{{ else }}400{{ end }}; text-decoration:none;">Wiki</a>
@@ -72,18 +70,18 @@
                 <script>
                     window.onload = function() {
                         const container = document.getElementById('graph-container');
-                        const nodes = [{ id: 'Wiki', name: 'Wiki', group: 1, size: 12 }];
+                        const nodes = [{ id: 'Wiki', name: 'Wiki', group: 1, size: 14 }];
                         const links = [];
                         const nodesSet = new Set(['Wiki']);
                         {{ range .Site.RegularPages }}{{ if .Params.keywords }}
                             if (!nodesSet.has('{{ .Title }}')) {
-                                nodes.push({ id: '{{ .Title }}', name: '{{ .Title }}', group: 2, size: 8, url: '{{ .Permalink }}' });
+                                nodes.push({ id: '{{ .Title }}', name: '{{ .Title }}', group: 2, size: 10, url: '{{ .Permalink }}' });
                                 links.push({ source: 'Wiki', target: '{{ .Title }}' });
                                 nodesSet.add('{{ .Title }}');
                             }
                             {{ range .Params.keywords }}
                                 if (!nodesSet.has('{{ . }}')) {
-                                    nodes.push({ id: '{{ . }}', name: '{{ . }}', group: 3, size: 5 });
+                                    nodes.push({ id: '{{ . }}', name: '{{ . }}', group: 3, size: 6 });
                                     nodesSet.add('{{ . }}');
                                 }
                                 links.push({ source: '{{ $.Title }}', target: '{{ . }}' });
@@ -99,13 +97,13 @@
                                 ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI, false);
                                 ctx.fillStyle = node.group === 1 ? '#007aff' : (node.group === 2 ? '#000' : '#ccc');
                                 ctx.fill();
-                                const fontSize = 11 / globalScale;
+                                const fontSize = 12 / globalScale;
                                 ctx.font = `${fontSize}px -apple-system, sans-serif`;
                                 ctx.textAlign = 'center'; ctx.textBaseline = 'top';
                                 ctx.fillStyle = node.group === 3 ? '#999' : '#333';
-                                ctx.fillText(label, node.x, node.y + radius + (3 / globalScale));
+                                ctx.fillText(label, node.x, node.y + radius + (4 / globalScale));
                             })
-                            .linkColor(() => '#f2f2f2').linkWidth(1).linkDirectionalParticles(1).linkDirectionalParticleSpeed(0.003)
+                            .linkColor(() => '#f2f2f2').linkWidth(1.2).linkDirectionalParticles(1).linkDirectionalParticleSpeed(0.003)
                             .width(container.offsetWidth).height(container.offsetHeight)
                             .onNodeClick(node => { if(node.url) window.location.href = node.url; });
                         const isLarge = window.innerWidth > 1200;
@@ -114,7 +112,7 @@
                     };
                 </script>
             {{ else }}
-                {{ .Content }}
+                <div style="line-height:1.8; opacity:0.9;">{{ .Content }}</div>
             {{ end }}
         </div>
     </main>
