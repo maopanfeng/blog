@@ -73,9 +73,8 @@ draft: false
 
 #### 五、 结论：投资者的心态
 
-**原文：** _The greatest risk is not volatility; it is the risk of missing the great winners through a lack of imagination._
-
-**中文翻译：** **最大的风险不是波动，而是因为缺乏想象力而错失那些伟大的赢家。**
+**原文：** The greatest risk is not volatility; it is the risk of missing the great winners through a lack of imagination.
+**中文翻译：最大的风险不是波动，而是因为缺乏想象力而错失那些伟大的赢家。
 ---
 
 **Stay on the Road Less Travelled, 2021
