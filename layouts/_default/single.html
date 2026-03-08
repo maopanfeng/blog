@@ -79,7 +79,14 @@ const query = e.target.value;
 if (!query) { results.style.display = 'none'; return; }
 const list = fuse.search(query);
 if (list.length > 0) {
-results.innerHTML = list.slice(0, 6).map(res => &lt;a href=&quot;${res.item.permalink}&quot; class=&quot;result-item&quot;&gt;&lt;strong&gt;${res.item.title}&lt;/strong&gt;&lt;/a&gt;).join('');
+results.innerHTML = '';
+list.slice(0, 6).forEach(res => {
+const a = document.createElement('a');
+a.href = res.item.permalink;
+a.className = 'result-item';
+a.innerHTML = '<strong>' + res.item.title + '</strong>';
+results.appendChild(a);
+});
 results.style.display = 'block';
 } else { results.style.display = 'none'; }
 });
