@@ -52,6 +52,7 @@ footer { width: 100%; padding: 60px 24px; text-align: center; font-size: 12px; o
 <script>
 window.onload = function() {
 const container = document.getElementById('graph-container');
+if (!container) return;
 const nodes = [{ id: 'Wiki', name: 'Wiki', group: 1, size: 14 }];
 const links = [];
 {{ range .Site.RegularPages }}{{ if .Params.keywords }}
@@ -68,6 +69,7 @@ ForceGraph()(container).graphData({ nodes, links }).nodeLabel('name').onNodeClic
 </main>
 <footer><p>© 2026 Ben Thinking. All Rights Reserved.</p></footer>
 <script>
+(function() {
 let fuse;
 fetch('{{ "index.json" | relLangURL }}').then(res => res.json()).then(data => {
 fuse = new Fuse(data, { keys: ['title', 'content'], threshold: 0.4 });
@@ -76,21 +78,24 @@ const input = document.getElementById('search-input');
 const results = document.getElementById('search-results');
 input.addEventListener('input', (e) => {
 const query = e.target.value;
-if (!query) { results.style.display = 'none'; return; }
+if (!query || !fuse) { results.style.display = 'none'; return; }
 const list = fuse.search(query);
 if (list.length > 0) {
 results.innerHTML = '';
 list.slice(0, 6).forEach(res => {
 const a = document.createElement('a');
-a.href = res.item.permalink;
-a.className = 'result-item';
-a.innerHTML = '<strong>' + res.item.title + '</strong>';
+a.setAttribute('href', res.item.permalink);
+a.setAttribute('class', 'result-item');
+const strong = document.createElement('strong');
+strong.appendChild(document.createTextNode(res.item.title));
+a.appendChild(strong);
 results.appendChild(a);
 });
 results.style.display = 'block';
 } else { results.style.display = 'none'; }
 });
 document.addEventListener('click', (e) => { if(!input.contains(e.target)) results.style.display = 'none'; });
+})();
 </script>
 </body>
 </html>
