@@ -1,23 +1,25 @@
-baseURL = "https://maopanfeng.com/"
+baseURL = ""
 title = "Ben Thinking"
-theme = "你的主题名" # 保持不变
 
-# 开启 JSON 输出用于全站原生搜索
-[outputs]
-  home = ["HTML", "JSON"]
-
-# 默认语言设置
+1. 核心语言设置
 defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = false # 英文在根目录 /，中文在 /cn/
+defaultContentLanguageInSubdir = false
 
+2. 主题配置 (如果你没有 themes 文件夹，请保持下面这行前面有 # 号)
+theme = "oswaldo"
+3. 搜索索引输出配置
+[outputs]
+home = ["HTML", "JSON"]
+
+4. 多语言详细定义
 [languages]
-  [languages.en]
-    languageName = "English"
-    weight = 1
-    contentDir = "content/en" # 英文文章放这里
+[languages.en]
+languageName = "English"
+contentDir = "content/en"
+weight = 1
 
-  [languages.cn]
-    languageName = "中文"
-    weight = 2
-    contentDir = "content/cn" # 中文文章放这里
-    languageCode = "zh-cn"
+[languages.cn]
+languageName = "中文"
+contentDir = "content/cn"
+weight = 2
+languageCode = "zh-cn"
