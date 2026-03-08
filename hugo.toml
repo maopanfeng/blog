@@ -1,32 +1,23 @@
-baseURL = 'https://maopanfeng.com/'
-languageCode = 'zh-cn'
-title = 'Ben Thinking'
-theme = 'paper'
+baseURL = "https://maopanfeng.com/"
+title = "Ben Thinking"
+theme = "你的主题名" # 保持不变
 
-[params]
-    name = "Ben"
-    description = "Complexity Investing"
-    # 找回搜索的关键开关
-    search = true 
-
-[menu]
-  [[menu.main]]
-    name = "首页"
-    url = "/"
-    weight = 10
-  [[menu.main]]
-    name = "Wiki"
-    url = "/wiki"
-    weight = 20
-  [[menu.main]]
-    name = "搜索"
-    url = "/search"
-    weight = 30
-  [[menu.main]]
-    name = "关于"
-    url = "/about"
-    weight = 40
-
-# 必须生成 JSON，否则你的搜索功能无法运行
+# 开启 JSON 输出用于全站原生搜索
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "JSON"]
+
+# 默认语言设置
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false # 英文在根目录 /，中文在 /cn/
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    weight = 1
+    contentDir = "content/en" # 英文文章放这里
+
+  [languages.cn]
+    languageName = "中文"
+    weight = 2
+    contentDir = "content/cn" # 中文文章放这里
+    languageCode = "zh-cn"
