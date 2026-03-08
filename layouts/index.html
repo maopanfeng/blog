@@ -1,53 +1,62 @@
 <!doctype html>
-<html lang="zh-cn">
+<html lang="{{ .Lang }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <title>Ben Thinking</title>
+    <title>{{ .Site.Title }}</title>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
     <style>
         body { margin: 0; padding: 0; background: #fff; color: #000; font-family: -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
-        header { position: fixed; top: 0; left: 0; right: 0; height: 80px; z-index: 9999; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: center; }
+        header { position: fixed; top: 0; left: 0; right: 0; height: 80px; z-index: 9999; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: center; }
         .nav-container { width: 100%; max-width: 720px; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; box-sizing: border-box; }
         .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
         .site-logo { width: 32px; height: 32px; border-radius: 6px; object-fit: contain; }
         .site-title { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.03em; }
-        .nav-right { display: flex; align-items: center; gap: 20px; }
-        .search-wrapper { display: flex; align-items: center; background: rgba(0,0,0,0.05); border-radius: 20px; padding: 6px 15px; }
-        .search-box { background: transparent; border: none; font-size: 13px; width: 80px; outline: none; }
         
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .search-wrapper { position: relative; display: flex; align-items: center; background: rgba(0,0,0,0.05); border-radius: 20px; padding: 6px 15px; }
+        .search-box { background: transparent; border: none; font-size: 13px; width: 100px; outline: none; }
+        #search-results { position: absolute; top: 45px; right: 0; width: 300px; background: #fff; border: 1px solid #eee; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-height: 400px; overflow-y: auto; display: none; z-index: 10000; }
+        .result-item { padding: 12px 15px; border-bottom: 1px solid #f9f9f9; display: block; text-decoration: none; color: inherit; text-align: left; }
+        .result-item:hover { background: #f5f5f7; }
+
+        .lang-switch { font-size: 12px; opacity: 0.4; text-decoration: none; color: inherit; font-weight: 700; }
+        .lang-switch:hover { opacity: 1; color: #007aff; }
+
         main { width: 100%; max-width: 720px; margin: 140px auto 0; padding: 0 24px; position: relative; box-sizing: border-box; flex: 1; }
         .post-item { margin-bottom: 60px; display: block; }
         .post-title { font-size: 1.85rem; font-weight: 800; margin-bottom: 0.8rem; display: block; text-decoration: none; color: inherit; line-height: 1.3; letter-spacing: -0.02em; }
-        .post-title:hover { opacity: 0.7; }
         .post-date { opacity: 0.25; font-size: 0.9rem; margin-bottom: 1.5rem; }
         .post-summary { line-height: 1.8; opacity: 0.7; font-size: 16px; }
-
-        footer { width: 100%; padding: 100px 24px 60px; text-align: center; box-sizing: border-box; font-size: 12px; opacity: 0.2; letter-spacing: 0.05em; }
+        
+        footer { width: 100%; padding: 100px 24px 60px; text-align: center; font-size: 12px; opacity: 0.2; }
 
         .sidebar-archive { position: absolute; left: calc(100% + 50px); top: 0; width: 100px; }
         .sidebar-archive h3 { font-size: 11px; opacity: 0.2; text-transform: uppercase; margin-bottom: 15px; }
         .sidebar-archive ul { list-style: none; padding: 0; margin: 0; font-size: 12px; line-height: 2.2; }
-        .sidebar-archive span { cursor: pointer; opacity: 0.4; transition: 0.2s; display: block; }
-        .sidebar-archive span.active { opacity: 1; color: #007aff; font-weight: 600; }
+        .year-btn { cursor: pointer; opacity: 0.4; transition: 0.2s; display: block; }
+        .year-btn.active { opacity: 1; color: #007aff; font-weight: 600; }
         @media (max-width: 1150px) { .sidebar-archive { display: none; } }
     </style>
 </head>
 <body>
     <header>
         <div class="nav-container">
-            <a href="/" class="logo-wrapper">
+            <a href="{{ .Site.BaseURL | relLangURL }}" class="logo-wrapper">
                 <img src="/logo.png" alt="" class="site-logo">
                 <span class="site-title">Ben Thinking</span>
             </a>
             <div class="nav-right">
                 <div class="search-wrapper">
-                    <form action="https://www.google.com/search" method="get" target="_blank" style="margin:0; display:flex;">
-                        <input type="hidden" name="as_sitesearch" value="maopanfeng.com">
-                        <input type="text" name="q" class="search-box" placeholder="搜索..." required>
-                    </form>
+                    <input type="text" id="search-input" class="search-box" placeholder="{{ if eq .Lang "cn" }}搜索...{{ else }}Search...{{ end }}">
+                    <div id="search-results"></div>
                 </div>
-                <a href="/wiki" style="font-size:14px; opacity:0.6; text-decoration:none; color:inherit;">Wiki</a>
-                <a href="/about" style="font-size:14px; opacity:0.6; text-decoration:none; color:inherit;">关于</a>
+                {{ if eq .Lang "en" }}
+                    <a href="/cn/" class="lang-switch">中文</a>
+                {{ else }}
+                    <a href="/" class="lang-switch">EN</a>
+                {{ end }}
+                <a href="{{ "wiki" | relLangURL }}" style="font-size:14px; opacity:0.6; text-decoration:none; color:inherit;">Wiki</a>
             </div>
         </div>
     </header>
@@ -56,7 +65,7 @@
         <aside class="sidebar-archive">
             <h3>Timeline</h3>
             <ul>
-                {{ range (seq 2026 -1 2000) }}
+                {{ range (seq 2026 -1 2020) }}
                 <li><span onclick="filterYear('{{ . }}')" class="year-btn">{{ . }}</span></li>
                 {{ end }}
             </ul>
@@ -64,7 +73,7 @@
 
         <div class="post-list" id="post-container">
             {{ range .Site.RegularPages }}
-                {{ if and (ne .Title "Wiki") (ne (.Date.Format "2006") "0001") (ne .Title "") }}
+                {{ if and (ne .Title "Wiki") (ne .Title "") (ne (.Date.Format "2006") "0001") }}
                 <article class="post-item" data-year="{{ .Date.Format "2006" }}">
                     <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
                     <div class="post-date">{{ .Date.Format "2006-01-02" }}</div>
@@ -75,22 +84,47 @@
         </div>
     </main>
 
-    <footer>
-        <p>© 2026 Ben Thinking. All Rights Reserved.</p>
-    </footer>
+    <footer><p>© 2026 Ben Thinking. All Rights Reserved.</p></footer>
 
     <script>
+        let fuse;
+        // 自动根据当前页面语言加载对应的 index.json
+        fetch('{{ "index.json" | relLangURL }}').then(res => res.json()).then(data => {
+            fuse = new Fuse(data, { keys: ['title', 'content', 'summary'], threshold: 0.4 });
+        });
+
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const query = e.target.value;
+            const resultsBox = document.getElementById('search-results');
+            if (!query || !fuse) { resultsBox.style.display = 'none'; return; }
+            const results = fuse.search(query);
+            if (results.length > 0) {
+                resultsBox.innerHTML = results.slice(0, 8).map(res => `
+                    <a href="${res.item.permalink}" class="result-item">
+                        <span style="font-weight:700; font-size:14px; display:block; margin-bottom:4px;">${res.item.title}</span>
+                        <span style="font-size:11px; opacity:0.5; display:block;">${res.item.summary.substring(0, 40)}...</span>
+                    </a>
+                `).join('');
+                resultsBox.style.display = 'block';
+            } else { resultsBox.style.display = 'none'; }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!document.getElementById('search-input').contains(e.target)) {
+                document.getElementById('search-results').style.display = 'none';
+            }
+        });
+
         function filterYear(year) {
             const posts = document.querySelectorAll('.post-item');
             const btns = document.querySelectorAll('.year-btn');
             btns.forEach(btn => {
-                btn.classList.remove('active'); btn.style.opacity = "0.4";
-                if (btn.innerText === year) { btn.classList.add('active'); btn.style.opacity = "1"; }
+                btn.classList.toggle('active', btn.innerText === year);
+                btn.style.opacity = (btn.innerText === year) ? "1" : "0.4";
             });
             posts.forEach(post => {
                 post.style.display = (year === 'all' || post.getAttribute('data-year') === year) ? 'block' : 'none';
             });
-            window.scrollTo({top: 0, behavior: 'smooth'});
         }
     </script>
 </body>
