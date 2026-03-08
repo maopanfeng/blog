@@ -13,6 +13,7 @@ header { position: fixed; top: 0; left: 0; right: 0; height: 80px; z-index: 9999
 .site-logo { width: 32px; height: 32px; border-radius: 6px; object-fit: contain; }
 .site-title { font-weight: 800; font-size: 1.25rem; }
 .nav-right { display: flex; align-items: center; gap: 15px; }
+.lang-switch { font-size: 12px; opacity: 0.4; text-decoration: none; color: inherit; font-weight: 700; }
 
 </head>
 <body>
@@ -23,8 +24,11 @@ header { position: fixed; top: 0; left: 0; right: 0; height: 80px; z-index: 9999
 <span class="site-title">Ben Thinking</span>
 </a>
 <div class="nav-right">
-{{ if eq .Lang "en" }} <a href="/cn/" style="font-size:12px; opacity:0.4; text-decoration:none; color:inherit; font-weight:700;">中文</a>
-{{ else }} <a href="/" style="font-size:12px; opacity:0.4; text-decoration:none; color:inherit; font-weight:700;">EN</a> {{ end }}
+{{ if eq .Lang "en" }}
+<a href="/cn/" class="lang-switch">中文</a>
+{{ else }}
+<a href="/" class="lang-switch">EN</a>
+{{ end }}
 <a href="{{ "wiki" | relLangURL }}" style="font-size:14px; opacity:0.6; text-decoration:none; color:inherit; margin-left:15px;">Wiki</a>
 </div>
 </div>
