@@ -5,23 +5,26 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>{{ .Title }} - Ben Thinking</title>
     <style>
+        /* 基础样式保持一致 */
         body { margin: 0; padding: 0; background: #fff; color: #000; font-family: -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
         header { position: fixed; top: 0; left: 0; right: 0; height: 80px; z-index: 9999; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: center; }
         .nav-container { width: 100%; max-width: 720px; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; box-sizing: border-box; }
         .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
-        .site-logo { width: 32px; height: 32px; border-radius: 6px; object-fit: contain; }
+        .site-logo { width: 32px; height: 32px; border-radius: 6px; }
         .site-title { font-weight: 800; font-size: 1.25rem; }
-        .nav-right { display: flex; align-items: center; gap: 15px; }
         
-        /* 正文容器样式 */
+        /* 统一导航栏样式 */
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .nav-link { font-size: 14px; opacity: 0.6; text-decoration: none; color: inherit; transition: opacity 0.2s; font-weight: 500; }
+        .nav-link:hover { opacity: 1; }
+        .lang-switch { font-size: 12px; opacity: 0.4; font-weight: 700; }
+
+        /* 文章内容区域样式 */
         main { width: 100%; max-width: 720px; margin: 140px auto 0; padding: 0 24px; box-sizing: border-box; flex: 1; }
-        h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 2rem; text-align: left; }
-        .content { line-height: 1.8; opacity: 0.9; font-size: 17px; }
-        
-        /* 段落缩进与排版 */
+        h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 2rem; text-align: left; line-height: 1.2; }
+        .content { line-height: 1.8; opacity: 0.9; font-size: 17px; color: #111; }
         .content p { margin-bottom: 1.5em; text-align: justify; }
-        .content h3 { margin-top: 2em; font-size: 1.4rem; border-left: 4px solid #000; padding-left: 15px; }
-        .content ul, .content ol { padding-left: 40px; margin-bottom: 1.5em; }
+        .content h3 { margin-top: 2.5em; font-size: 1.4rem; border-left: 4px solid #000; padding-left: 15px; }
         
         footer { width: 100%; padding: 100px 24px 60px; text-align: center; font-size: 12px; opacity: 0.2; }
     </style>
@@ -29,17 +32,20 @@
 <body>
     <header>
         <div class="nav-container">
-            <a href="{{ .Site.BaseURL | relLangURL }}" class="logo-wrapper">
+            <a href="{{ if eq .Lang "cn" }}/cn/{{ else }}/{{ end }}" class="logo-wrapper">
                 <img src="/logo.png" alt="" class="site-logo">
                 <span class="site-title">Ben Thinking</span>
             </a>
             <div class="nav-right">
-                {{ if eq .Lang "en" }} 
-                    <a href="/cn/" style="font-size:12px; opacity:0.4; text-decoration:none; color:inherit; font-weight:700;">中文</a>
-                {{ else }} 
-                    <a href="/" style="font-size:12px; opacity:0.4; text-decoration:none; color:inherit; font-weight:700;">EN</a> 
+                {{ if eq .Lang "en" }}
+                    <a href="/cn/{{ .Slug | default .File.BaseFileName }}" class="lang-switch nav-link">中文</a>
+                    <a href="/wiki" class="nav-link">Wiki</a>
+                    <a href="/about" class="nav-link">About</a>
+                {{ else }}
+                    <a href="/{{ .Slug | default .File.BaseFileName }}" class="lang-switch nav-link">EN</a>
+                    <a href="/cn/wiki" class="nav-link">Wiki</a>
+                    <a href="/cn/about" class="nav-link">About</a>
                 {{ end }}
-                <a href="{{ "wiki" | relLangURL }}" style="font-size:14px; opacity:0.6; text-decoration:none; color:inherit; margin-left:15px;">Wiki</a>
             </div>
         </div>
     </header>
@@ -48,12 +54,13 @@
         <article>
             <h1>{{ .Title }}</h1>
             <div class="content">
-                {{ .Content }} </div>
+                {{ .Content }}
+            </div>
         </article>
     </main>
 
     <footer>
-        &copy; {{ now.Year }} Ben Thinking. Built with Hugo.
+        &copy; {{ now.Year }} Ben Thinking. Built with complexity and care.
     </footer>
 </body>
 </html>
