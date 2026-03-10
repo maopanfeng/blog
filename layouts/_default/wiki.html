@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="{{ .Lang }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>{{ .Title }} - Ben Thinking</title>
+    <style>
+        body { margin: 0; padding: 0; background: #fff; color: #000; font-family: -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; align-items: center; }
+        header { position: fixed; top: 0; left: 0; right: 0; height: 80px; z-index: 9999; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: center; }
+        .nav-container { width: 100%; max-width: 720px; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; box-sizing: border-box; }
+        .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+        .site-logo { width: 32px; height: 32px; border-radius: 6px; }
+        .site-title { font-weight: 800; font-size: 1.25rem; }
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        main { width: 100%; max-width: 720px; margin: 120px auto 0; padding: 0 24px; position: relative; box-sizing: border-box; }
+        #wiki-graph { width: 100%; height: 450px; background: #fafafa; border-radius: 12px; margin-bottom: 50px; border: 1px solid #f0f0f0; cursor: grab; }
+        .post-list h2 { font-size: 1.1rem; font-weight: 800; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.3; }
+        .post-item { margin-bottom: 35px; display: block; text-decoration: none; color: inherit; }
+        .post-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; display: block; }
+        .post-date { opacity: 0.25; font-size: 0.8rem; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="{{ if eq .Lang "cn" }}/cn/{{ else }}/{{ end }}" class="logo-wrapper">
+                <img src="/logo.png" alt="" class="site-logo">
+                <span class="site-title">Ben Thinking</span>
+            </a>
+            <div class="nav-right">
+                {{ if eq .Lang "en" }}
+                    <a href="/cn/wiki" style="font-size:12px; opacity:0.4; text-decoration:none; color:inherit; font-weight:700;">中文</a>
+                {{ else }}
+                    <a href="/wiki" style="font-size:12px; opacity:0.4; text-decoration:none; color:inherit; font-weight:700;">EN</a>
+                {{ end }}
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="wiki-graph"></div>
+        <div class="post-list">
+            <h2>{{ if eq .Lang "cn" }}知识节点{{ else }}Knowledge Nodes{{ end }}</h2>
+            {{ range (where .Site.RegularPages "Section" "posts") }}
+                {{ if eq .Lang $.Lang }}
+                <article class="post-item">
+                    <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
+                    <div class="post-date">{{ .Date.Format "2006-01-02" }}</div>
+                </article>
+                {{ end }}
+            {{ end }}
+        </div>
+    </main>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        // 根据语言动态定义节点内容
+        const isCn = "{{ .Lang }}" === "cn";
+        const nodes = isCn ? [
+            { id: "复杂经济学", url: "/cn/posts/complexity-economics/" },
+            { id: "詹姆斯·安德森", url: "/cn/posts/lingotto/" },
+            { id: "Lingotto", url: "/cn/posts/lingotto/" },
+            { id: "规模法则", url: "/cn/posts/scale/" }
+        ] : [
+            { id: "Complexity Economics", url: "/posts/complexity-economics/" },
+            { id: "James Anderson", url: "/posts/lingotto/" },
+            { id: "Lingotto", url: "/posts/lingotto/" },
+            { id: "Scale", url: "/posts/scale/" }
+        ];
+
+        const links = [
+            { source: isCn ? "詹姆斯·安德森" : "James Anderson", target: "Lingotto" },
+            { source: "Lingotto", target: isCn ? "复杂经济学" : "Complexity Economics" }
+        ];
+
+        // ... D3 渲染逻辑保持不变 ...
+        const container = document.getElementById('wiki-graph');
+        const width = container.clientWidth, height = 450;
+        const svg = d3.select("#wiki-graph").append("svg").attr("width", width).attr("height", height);
+        const sim = d3.forceSimulation(nodes).force("link", d3.forceLink(links).id(d => d.id).distance(100)).force("charge", d3.forceManyBody().strength(-300)).force("center", d3.forceCenter(width / 2, height / 2));
+        const link = svg.append("g").attr("stroke", "#eee").selectAll("line").data(links).join("line");
+        const node = svg.append("g").selectAll("g").data(nodes).join("g").style("cursor", "pointer").on("click", (e, d) => { window.location.href = d.url; });
+        node.append("circle").attr("r", 6).attr("fill", "#000");
+        node.append("text").text(d => d.id).attr("x", 12).attr("y", 4).style("font-size", "11px").style("fill", "#999");
+        sim.on("tick", () => { link.attr("x1", d => d.source.x).attr("y1", d => d.source.y).attr("x2", d => d.target.x).attr("y2", d => d.target.y); node.attr("transform", d => `translate(${d.x},${d.y})`); });
+    </script>
+</body>
+</html>
