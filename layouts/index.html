@@ -68,7 +68,7 @@
 
         <div class="post-list" id="post-container">
             {{ range where .Site.RegularPages "Section" "posts" }}
-                {{ if and (eq .Lang $.Lang) (ne .Title "About") (ne .Title "Wiki") }}
+                {{ if and (eq .Lang $.Lang) (ne .Title "关于复杂性投资") (ne .Title "About Complexity Investing") (ne .Title "Wiki") (ne .Title "维基") }}
                 <article class="post-item" data-year="{{ .Date.Format "2006" }}">
                     <a href="{{ .RelPermalink }}" class="post-title">{{ .Title }}</a>
                     <div class="post-date">{{ .Date.Format "2006-01-02" }}</div>
