@@ -36,9 +36,9 @@
                 <span class="site-title">Ben Thinking</span>
             </a>
             <div class="nav-right">
-                <div class="search-wrapper"><input type="text" class="search-box" placeholder="搜索..." onkeyup="filterSearch(this.value)"></div>
+                <div class="search-wrapper"><input type="text" class="search-box" placeholder="Search..." onkeyup="filterSearch(this.value)"></div>
                 <a href="/wiki" style="font-size:14px; opacity:0.6; text-decoration:none; color:inherit;">Wiki</a>
-                <a href="/about" style="font-size:14px; opacity:0.6; text-decoration:none; color:inherit;">关于</a>
+                <a href="/about" style="font-size:14px; opacity:0.6; text-decoration:none; color:inherit;">About</a>
             </div>
         </div>
     </header>
