@@ -27,10 +27,14 @@
         .post-date { opacity: 0.25; font-size: 0.9rem; margin-bottom: 1.5rem; }
         .post-summary { line-height: 1.8; opacity: 0.7; font-size: 16px; text-align: justify; }
 
-        /* Timeline 侧边栏样式 */
-        .sidebar-archive { position: absolute; left: calc(100% + 50px); top: 0; width: 100px; }
+        /* Timeline 侧边栏：从 2000 开始 */
+        .sidebar-archive { position: absolute; left: calc(100% + 50px); top: 0; width: 100px; height: calc(100vh - 140px); }
         .sidebar-archive h3 { font-size: 11px; opacity: 0.2; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.1em; }
-        .sidebar-archive ul { list-style: none; padding: 0; margin: 0; font-size: 12px; line-height: 2.5; }
+        .sidebar-archive ul { 
+            list-style: none; padding: 0; margin: 0; font-size: 12px; line-height: 2.2; 
+            max-height: 80vh; overflow-y: auto; scrollbar-width: none; /* 隐藏滚动条 */
+        }
+        .sidebar-archive ul::-webkit-scrollbar { display: none; }
         .sidebar-archive span { cursor: pointer; opacity: 0.3; transition: 0.2s; display: block; font-family: monospace; }
         .sidebar-archive span:hover, .sidebar-archive span.active { opacity: 1; color: #000; font-weight: 700; }
         
@@ -67,7 +71,7 @@
         <aside class="sidebar-archive">
             <h3>Timeline</h3>
             <ul>
-                {{ range (seq 2026 -1 2024) }}
+                {{ range (seq 2026 -1 2000) }}
                 <li><span onclick="filterYear('{{ . }}')" class="year-btn">{{ . }}</span></li>
                 {{ end }}
             </ul>
@@ -99,7 +103,8 @@
             currentYear = year;
             btns.forEach(btn => {
                 btn.classList.remove('active');
-                if (btn.innerText === year) { btn.classList.add('active'); }
+                btn.style.opacity = "0.3";
+                if (btn.innerText === year) { btn.classList.add('active'); btn.style.opacity = "1"; }
             });
             posts.forEach(post => {
                 if (year === 'all' || post.getAttribute('data-year') === year) { post.style.display = 'block'; }
