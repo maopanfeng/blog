@@ -5,112 +5,105 @@ draft: false
 aliases:
 ---
 
-##《Rethinking Risk: Uncertainty and Investment Returns》 重新思考风险：不确定性与投资回报
-**作者：John Kay**
 
-### 核心摘要
-在现代金融领域，“风险”常被错误地等同于“波动率”。本文认为，真正的风险并非股价的上下起伏，而是由于“激进不确定性”导致的投资逻辑崩溃。投资者应放弃对概率模型的执迷，转而关注叙事逻辑与系统的韧性。
+## **Rethinking Risk: Uncertainty and Investment Returns**
 
+**Author:** John Kay
+**Core Abstract:**
+In modern finance, "risk" is often mistakenly equated with "volatility." This article argues that true risk is not the fluctuation of stock prices, but the collapse of an investment thesis caused by **"Radical Uncertainty."** Investors should abandon their obsession with probabilistic models and instead focus on narrative logic and systemic resilience.
 
-#### 一、 风险与不确定性的本质区别
-在金融教科书中，风险通常被定义为收益的标准差（波动率）。但这种定义仅适用于“小世界”（如赌场或保险精算），在现实的“大世界”中，我们面临的是**激进不确定性（Radical Uncertainty）**。
+### **1. The Fundamental Difference Between Risk and Uncertainty**
 
-* **可计算的风险**：你可以通过历史数据计算出发生的概率。
-* **激进不确定性**：你不仅不知道事件发生的概率，甚至连可能发生什么都无法穷举。这种不确定性是无法被数学模型“捕获”的。
+In finance textbooks, risk is typically defined as the standard deviation of returns (volatility). However, this definition only applies to a "Small World" (such as a casino or actuarial insurance). In the real "Big World," we face **Radical Uncertainty**.
 
-#### 二、 为什么波动率不是风险？
-对于长期投资者而言，短期股价的剧烈波动并不代表风险。
-1.  **波动的暂时性**：只要公司的基本面（叙事）没有改变，价格最终会回归价值。
-2.  **真正的风险是“资本的永久性损失”**：这通常源于企业商业模式的瓦解，而非市场情绪的变动。
+* **Resolvable Risk:** Events where you can calculate the probability of occurrence based on historical data.
+* **Radical Uncertainty:** Events where you neither know the probability nor can you even enumerate all the possible outcomes. This type of uncertainty cannot be "captured" by mathematical models.
 
-#### 三、 问一个正确的问题：“这里到底在发生什么？”
-既然预测模型失效了，我们该如何决策？John Kay 提出，与其计算概率，不如构建**“参考叙事（Reference Narrative）**。
+### **2. Why Volatility Is Not Risk**
 
-当面临一项投资决策时，投资者应停止盯着 Excel 里的折现率（Discount Rate），而是问自己：
-> **“这里到底在发生什么？” (What is going on here?)**
+For long-term investors, severe short-term price fluctuations do not constitute risk.
 
-这要求我们理解：
-* 驱动行业变革的技术底层是什么？
-* 管理层的决策逻辑是否具备一致性？
-* 系统在极端压力下是否具有韧性（Resilience）？
+* **The Transience of Volatility:** As long as the company’s fundamentals (the narrative) remain unchanged, price will eventually converge with value.
+* **True Risk is the "Permanent Loss of Capital":** This usually stems from the disintegration of a business model, not a shift in market sentiment.
 
-#### 四、 应对不确定性的策略：韧性与适应性
-在激进不确定性的世界里，完美的优化（Optimization）是不存在的。
-* **韧性 (Resilience)**：确保系统在遭受未曾预料的冲击时不会彻底崩溃。
-* **适应性 (Adaptability)**：在环境发生变化时，能够迅速调整叙事逻辑并采取行动。
+### **3. Ask the Right Question: "What is going on here?"**
 
+Since predictive models fail, how should we make decisions? John Kay suggests that instead of calculating probabilities, we should construct a **"Reference Narrative."**
+When facing an investment decision, investors should stop staring at discount rates in Excel and instead ask:
 
+> **"What is going on here?"**
 
-#### 结论：重塑投资观
-投资不是一场关于概率的博弈，而是一场关于**洞察力**的长跑。我们必须接受“未来是不可知”的这一事实，将精力从预测价格波动转向理解企业在复杂系统中的演化逻辑。
+This requires understanding:
 
+* What is the underlying technology driving industry change?
+* Is the management’s decision-making logic consistent?
+* Is the system resilient under extreme pressure?
 
+### **4. Strategies for Uncertainty: Resilience and Adaptability**
 
----
+In a world of radical uncertainty, perfect "Optimization" does not exist.
 
-## 《Radical Uncertainty》《激进的不确定性》
+* **Resilience:** Ensuring the system does not collapse entirely when hit by unforeseen shocks.
+* **Adaptability:** The ability to quickly adjust the narrative logic and take action when the environment changes.
 
-这本书由 John Kay 与前英国央行行长 Mervyn King 合著（2020年出版）。它是对现代金融风险模型的“大火烧山”式的批判。
-
-批判对象：批判传统的“芝加哥学派”经济学，即认为所有不确定性都可以通过赋予概率分布来转变为“风险”。
-
-核心逻辑：在现实世界（大世界）中，我们面临的是“未知的未知”。例如，你无法给“下一次疫情的精准概率”或“AI 对 20 年后社会的具体影响”设定一个 0 到 1 之间的数值。
-
-
-
-“重新思考风险”的四大支柱
-
-在 Kay 与 Anderson 的对话中，他提出了几个颠覆性的视角：
-
-风险 vs 不确定性：
-
-风险（Risk）：像赌场里的转盘，结果和概率是已知的。
-
-不确定性（Uncertainty）：是关于未来的无知。Kay 认为，风险通常是负面的（可能导致失败），而不确定性则是双向的（可能带来超额回报）。
-
-拒绝“钟形曲线”：
-传统的金融模型假设收益呈正态分布（钟形曲线），但 Kay 认为现实社会具有**“非平稳性”（Non-stationarity）**。环境在变，人类的行为也在随着对环境的认知而改变，因此历史数据无法预测未来的“黑天鹅”。
-
-参考叙事（Reference Narrative）：
-Kay 提出，与其去计算概率，不如构建一个“参考叙事”。投资者应该问：“这里到底在发生什么？”（What is going on here?） 风险是指那些可能破坏你对一家公司成长逻辑（叙事）的突发事件，而不是股价的波动率（Volatility）。
-
-反脆弱与韧性（Resilience）：
-既然未来不可计算，那应对风险的最好办法不是“优化模型”，而是**“增加韧性”**。
-
-
-
-与 James Anderson 的共鸣
-
-James Anderson 曾多次提到，正是因为绝大多数投资者（尤其是量化基金）错误地把“波动”当成风险，才给了长期投资者机会。
-
-波动不是风险：两人都认为，如果你持有一个伟大的公司（如 NVIDIA 或 Tesla），股价跌 50% 不是风险，而是波动；真正的风险是公司的核心竞争力彻底丧失。
-
-寻找 Outliers：Kay 的理论为 Anderson 这种“下重注于极少数公司”的行为提供了理论支持——因为在一个激进不确定性的世界里，唯有极少数极具韧性和扩张力的公司能穿越迷雾。
+**Conclusion: Reshaping the Investment Outlook**
+Investing is not a game of probabilities; it is a marathon of insight. We must accept the fact that "the future is unknowable" and shift our energy from predicting price movements to understanding the evolutionary logic of enterprises within complex systems.
 
 ---
 
-尽管 John Kay 与 纳西姆·塔勒布 (Nassim Taleb) 都对现代金融理论（如有效市场假说、正态分布模型）持猛烈的批判态度，但他们的思维路径和给出的“解药”有显著差异。以下是两人关于“不确定性”与“风险”理论的深度对比：
-维度	John Kay (激进不确定性)	Nassim Taleb (黑天鹅/反脆弱)
-核心定义	无法用概率描述的无知。我们甚至不知道可能发生什么，更谈不上概率。	极罕见、影响巨大、事后可解释。强调统计分布中的“肥尾”效应。
-关注点	叙事与现实的关系。关注人类如何通过逻辑和故事在复杂世界中决策。	统计学与概率论的局限。关注极端事件对系统的毁灭性打击。
-对待波动的态度	波动是噪音，不代表风险。	波动是系统健康的表现。禁绝波动会导致系统脆弱。
-对专家的看法	专家错在试图把复杂世界简化为单一模型。	专家（尤其是经济学家）大多是“江湖郎中”，因为他们没有“切肤之痛”（Skin in the Game）。1. 核心概念对比：激进不确定性 vs. 黑天鹅维度John Kay (激进不确定性)Nassim Taleb (黑天鹅/反脆弱)核心定义无法用概率描述的无知。我们甚至不知道可能发生什么，更谈不上概率。极罕见、影响巨大、事后可解释。强调统计分布中的“肥尾”效应。关注点叙事与现实的关系。关注人类如何通过逻辑和故事在复杂世界中决策。统计学与概率论的局限。关注极端事件对系统的毁灭性打击。对待波动的态度波动是噪音，不代表风险。波动是系统健康的表现。禁绝波动会导致系统脆弱。对专家的看法专家错在试图把复杂世界简化为单一模型。专家（尤其是经济学家）大多是“江湖郎中”，因为他们没有“切肤之痛”（Skin in the Game）。
-2. 哲学分歧：如何应对“未知的未知”？John Kay：构建“参考叙事”（Reference Narrative）Kay 认为，既然数学模型失效了，人类唯一的武器是理性叙事。解决方法：问自己“这里到底在发生什么？”（What is going on here?）。投资应用：James Anderson 受此启发最深。他不在乎分析师的 Excel 预测，他在乎的是“AI 是否正在改变计算的基础架构”这个大叙事。如果叙事成立，过程中的任何股价波动都是不重要的。Taleb：追求“反脆弱”（Antifragility）Taleb 认为，你不需要理解“为什么”或“发生了什么”，你只需要确保自己在灾难中能活下来，并从波动中获益。解决方法：杠铃策略（Barbell Strategy）。极度保守（90% 现金/安全资产）+ 极度冒险（10% 高杠杆/高成长）。投资应用：不赌单一个股的逻辑，而是赌“一旦发生剧变，谁获利最高”。他更倾向于通过期权等工具在极端波动中获利。
-3. 给投资者的核心启示关于“风险”的定义：Kay：风险是你的**“叙事逻辑”破产了**（例如：你认为电商会取代零售，结果人类重回线下）。Taleb：风险是**“爆仓”（Ruin）**。只要你还没出局，就有机会等到肥尾效应带来的暴利。关于“知识”的界限：Kay 鼓励深度思考，通过跨学科知识（格栅思维）构建更稳健的逻辑。Taleb 鼓励防御性决策，认为世界太复杂，承认自己是“愚蠢的”，然后靠系统结构（反脆弱）去赢。
-4. 总结：James Anderson 站在哪一边？James Anderson 显然更偏向 John Kay。虽然他也欣赏 Taleb 对“肥尾”的描述，但 Anderson 的投资风格是**“基于深厚洞察的重仓持有”。他相信通过深度的学术研究和对创始人的理解，可以识别出那些能驾驭“激进不确定性”的卓越企业。这是一种“进攻型”的长期主义**，而 Taleb 的反脆弱更多是一种**“防御转反击”的结构设计**。
+## **Deep Dive: "Radical Uncertainty" (2020)**
 
+*Co-authored by John Kay and Mervyn King (former Governor of the Bank of England).*
 
+* **The Critique:** A "scorched-earth" critique of modern financial risk models, specifically the "Chicago School" of economics, which assumes all uncertainty can be transformed into "risk" by assigning probability distributions.
+* **Core Logic:** In the real world, we face "unknown unknowns." You cannot assign a value between 0 and 1 to the "exact probability of the next pandemic" or the "specific impact of AI on society 20 years from now."
 
+### **The Four Pillars of "Rethinking Risk"**
 
+1. **Risk vs. Uncertainty:** Risk is like a roulette wheel (known outcomes/probabilities). Uncertainty is ignorance of the future. Kay notes that risk is often negative (failure), while uncertainty is two-sided (potential for alpha).
+2. **Rejecting the "Bell Curve":** Traditional models assume returns follow a normal distribution. Kay argues reality is **Non-stationary**—the environment and human behavior change constantly, so historical data cannot predict future "Black Swans."
+3. **Reference Narratives:** Ask "What is going on here?" Risk is any event that breaks your growth logic for a company, not the volatility of its share price.
+4. **Resilience:** Since the future is incalculable, the best defense is not "optimizing a model," but "increasing resilience."
 
 ---
 
-推荐
+## **The Synergy with James Anderson**
 
+James Anderson has frequently mentioned that the opportunity for long-term investors exists precisely because most market participants (especially quant funds) mistakenly treat volatility as risk.
 
+* **Volatility is Noise:** For both thinkers, if you hold a great company (like NVIDIA or Tesla), a 50% drop in stock price is volatility; true risk is the total loss of the company's core competitiveness.
+* **Hunting for Outliers:** Kay’s theory provides the intellectual foundation for Anderson’s high-conviction, concentrated style—in a world of radical uncertainty, only a few highly resilient and expansive companies can navigate the fog.
 
-文章：《Rethinking Risk: Uncertainty and Investment Returns》 (Baillie Gifford 刊物 Trust 中的访谈)。
+---
 
-播客：John Kay 参加的 The Money Maze Podcast。
+## **Depth Comparison: John Kay vs. Nassim Taleb**
 
-书籍：《Other People's Money》《探讨金融业的系统性风险》和 《Radical Uncertainty》。
+While both Kay and Taleb (author of *The Black Swan*) fiercely criticize modern finance, their "cures" differ:
+
+| Dimension | John Kay (Radical Uncertainty) | Nassim Taleb (Black Swan/Antifragile) |
+| --- | --- | --- |
+| **Core Definition** | Ignorance that cannot be described by probability. We don't even know what *might* happen. | Extremely rare, high-impact, explainable only in hindsight. Emphasizes "Fat Tails." |
+| **Focus** | The relationship between narrative and reality. How humans use logic and stories to decide. | The limits of statistics. How extreme events destroy systems. |
+| **View on Volatility** | Volatility is noise; it does not equal risk. | Volatility is a sign of health. Suppressing it makes a system fragile. |
+| **View on Experts** | Experts err by trying to simplify the world into a single model. | Experts (especially economists) are "fragilistas" with no "Skin in the Game." |
+
+### **Philosophical Divergence**
+
+* **John Kay: Construct a "Reference Narrative."** Since models fail, our only weapon is a rational story. **Investment Application:** James Anderson focuses on the "Big Narrative" (e.g., Is AI changing the foundation of computing?). If the story holds, price swings are irrelevant.
+* **Taleb: Pursue "Antifragility."** You don’t need to understand "why." You just need to survive and profit from the chaos. **Investment Application:** The Barbell Strategy (90% safe, 10% high-risk/high-reward). He prefers options to profit from extreme volatility rather than betting on a single company's logic.
+
+### **Summary: Where does James Anderson stand?**
+
+James Anderson leans closer to **John Kay**. While he appreciates Taleb’s "Fat Tails," Anderson’s style is **"High-Conviction Holding based on deep insight."** He believes that through academic research and understanding founders, one can identify the exceptional firms capable of harnessing radical uncertainty. This is **"Offensive Long-termism,"** whereas Taleb’s antifragility is more of a **"Defensive-to-Counterattack" structural design.**
+
+---
+
+### **Recommended Resources**
+
+* **Article:** *"Rethinking Risk: Uncertainty and Investment Returns"* (Interview in Baillie Gifford’s publication, *Trust*).
+* **Podcast:** John Kay on *The Money Maze Podcast*.
+* **Books:** *Other People's Money*, *Obliquity*, and *Radical Uncertainty*.
+
+---
+
+Would you like me to add these translated points to your Hugo-based Wiki or adjust the formatting for a blog post?
