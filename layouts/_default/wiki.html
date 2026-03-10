@@ -14,8 +14,8 @@
         
         main { width: 100%; max-width: 720px; margin: 120px auto 0; padding: 0 24px; position: relative; box-sizing: border-box; }
         
-        /* 增加溢出隐藏，防止干扰页面滚动 */
-        #wiki-graph { width: 100%; height: 500px; background: #fafafa; border-radius: 12px; margin-bottom: 50px; border: 1px solid #f0f0f0; cursor: grab; overflow: hidden; position: relative; }
+        /* 星图容器：背景微调为深邃感或纯净白 */
+        #wiki-graph { width: 100%; height: 600px; background: radial-gradient(circle at center, #ffffff 0%, #fcfcfc 100%); border-radius: 12px; margin-bottom: 50px; border: 1px solid #f0f0f0; cursor: grab; overflow: hidden; }
         
         .post-list h2 { font-size: 1.1rem; font-weight: 800; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.3; }
         .post-item { margin-bottom: 35px; display: block; text-decoration: none; color: inherit; border-bottom: 1px solid #f9f9f9; padding-bottom: 20px; }
@@ -70,7 +70,6 @@
         allNodes.forEach(s => {
             allNodes.forEach(t => {
                 if (s.id !== t.id) {
-                    // 逻辑连线：James Anderson <-> Lingotto, Scale <-> Complexity
                     if ((s.id.includes("James") || s.id.includes("詹姆斯")) && t.id.includes("Lingotto")) allLinks.push({source: s.id, target: t.id});
                     if ((s.id.includes("Scale") || s.id.includes("规模")) && (t.id.includes("Complexity") || t.id.includes("复杂"))) allLinks.push({source: s.id, target: t.id});
                 }
@@ -79,22 +78,24 @@
 
         const container = document.getElementById('wiki-graph');
         const width = container.clientWidth;
-        const height = 500;
+        const height = 600;
 
         const svg = d3.select("#wiki-graph").append("svg")
-            .attr("viewBox", [0, 0, width, height]) // 使用 viewBox 保持比例
+            .attr("viewBox", [0, 0, width, height])
             .attr("width", width)
             .attr("height", height);
 
+        // 核心修改：辐射状动力学设置
         const sim = d3.forceSimulation(allNodes)
-            .force("link", d3.forceLink(allLinks).id(d => d.id).distance(100))
-            .force("charge", d3.forceManyBody().strength(-400)) // 稍微减弱排斥力
-            .force("center", d3.forceCenter(width / 2, height / 2))
-            .force("collision", d3.forceCollide().radius(50)); // 防止节点重叠
+            .force("link", d3.forceLink(allLinks).id(d => d.id).distance(150))
+            .force("charge", d3.forceManyBody().strength(-800)) // 极强的排斥力，像爆炸一样散开
+            .force("x", d3.forceX(width / 2).strength(0.1))    // 弱引力，防止跑远
+            .force("y", d3.forceY(height / 2).strength(0.1))   // 弱引力，防止跑远
+            .force("collide", d3.forceCollide().radius(60).iterations(2)); // 软碰撞，保持随机感
 
         const link = svg.append("g")
-            .attr("stroke", "#eee")
-            .attr("stroke-width", 1.5)
+            .attr("stroke", "#f0f0f0")
+            .attr("stroke-width", 1)
             .selectAll("line").data(allLinks).join("line");
 
         const node = svg.append("g")
@@ -102,23 +103,34 @@
             .style("cursor", "pointer")
             .on("click", (e, d) => { window.location.href = d.url; })
             .call(d3.drag()
-                .on("start", (e, d) => { if (!e.active) sim.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+                .on("start", (e, d) => { if (!e.active) sim.alphaTarget(0.2).restart(); d.fx = d.x; d.fy = d.y; })
                 .on("drag", (e, d) => { d.fx = e.x; d.fy = e.y; })
                 .on("end", (e, d) => { if (!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; }));
 
-        node.append("circle").attr("r", 8).attr("fill", "#000").attr("stroke", "#fff").attr("stroke-width", 2);
-        node.append("text").text(d => d.id).attr("x", 14).attr("y", 5).style("font-size", "12px").style("fill", "#666");
+        // 增加“发散”视觉：圆圈大小轻微随机，增加星空感
+        node.append("circle")
+            .attr("r", d => 4 + Math.random() * 6) 
+            .attr("fill", "#000")
+            .attr("opacity", 0.8);
+
+        node.append("text")
+            .text(d => d.id)
+            .attr("x", 12)
+            .attr("y", 4)
+            .style("font-size", "11px")
+            .style("fill", "#bbb")
+            .style("font-weight", "400");
 
         sim.on("tick", () => {
-            // 关键修复：加入边界限制，不让节点坐标超出画布范围
-            allNodes.forEach(d => {
-                d.x = Math.max(80, Math.min(width - 80, d.x));
-                d.y = Math.max(30, Math.min(height - 30, d.y));
-            });
-
             link.attr("x1", d => d.source.x).attr("y1", d => d.source.y)
                 .attr("x2", d => d.target.x).attr("y2", d => d.target.y);
             node.attr("transform", d => `translate(${d.x},${d.y})`);
+        });
+
+        // 初始时给每个节点一个随机速度，打破棋盘平衡
+        allNodes.forEach(d => {
+            d.x = width / 2 + (Math.random() - 0.5) * 100;
+            d.y = height / 2 + (Math.random() - 0.5) * 100;
         });
     </script>
 </body>
