@@ -1,40 +1,45 @@
 ---
-title: "关于复杂性投资"
+title: "Complexity Investing"
 date: 2026-01-01
 draft: false
 layout: "single"
 ---
 
-### 投资、复杂性与时间
-**Investing, Complexity, and Time**
-
-我叫 **FengLi**，管理着 FengLi。
-
-这个博客是我思考的“格栅”——通过记录与输出，我试图在这个非线性增长的世界中，寻找那些具有长效价值的确定性。
-
----
-
-### 我的格栅 (Latticework)
-
-我的思维方式深受以下几位思想家与投资者的启发：
-
-* **詹姆斯·安德森 (James Anderson)**：他关于非线性、不对称回报以及对技术革命耐心的观察，是我审视成长股的核心框架。
-* **布莱恩·阿瑟 (Brian Arthur)**：理解“收益递增”规律是理解现代经济特别是科技行业竞争格局的关键。
-* **查理·芒格 (Charlie Munger)**：他教会我跨学科思维的价值。在这个复杂系统中，单一维度的知识往往是盲目的。
+### Investing, Complexity, and Time
 
 
-### 关注领域 (Focus Areas)
 
-我目前的时间主要分配在：
-1.  **复杂系统投资**：寻找具备收益递增效应和强大非线性增长潜力的企业。
-2.  **科技趋势**：深度关注人工智能（AI）及其在垂直领域（如短剧、内容生产）的重构能力。
-3.  **新能源与出行**：持续跟踪电动汽车（EV）及其供应链的全球演进。
+This blog serves as my intellectual "latticework"—a space where, through writing and synthesis, I strive to uncover certainties with enduring value within this non-linearly growing world.
 
 ---
 
-### 为什么建立这个站点？
+### My Latticework
 
-有时间去阅读、观察和回溯。我推崇“长期主义”，但这并非盲目持有，而是基于对系统复杂性的深刻理解。
+My thinking is deeply inspired by the following visionaries and investors:
+
+* **Charlie Munger**: He taught me the profound value of multi-disciplinary thinking. In a complex system, knowledge restricted to a single dimension is often blind.
+
+
+* **W. Brian Arthur**: Understanding the law of "Increasing Returns" is the key to grasping the competitive landscape of the modern economy, especially within the tech sector.
+
+
+* **James Anderson**: His observations on non-linearity, asymmetric returns, and the necessity of patience during technological revolutions form the core framework of my growth investing strategy.
+
+
+---
+
+### Focus Areas
+
+Currently, I dedicate my time to:
+1.  **Complex Systems Investing**: Identifying enterprises that possess increasing returns and strong potential for non-linear growth.
+2.  **Technological Trends**: Deeply tracking Artificial Intelligence (AI) and its capacity to restructure vertical industries (such as short-form drama and content production).
+3.  **New Energy & Mobility**: Continuously monitoring the global evolution of Electric Vehicles (EVs) and their associated supply chains.
+
+---
+
+### Why This Site?
+
+To make time for reading, observing, and reflecting. I advocate for "Long-termism," not as blind holding, but as a strategy rooted in a profound understanding of systemic complexity.
 
 ---
 
@@ -42,11 +47,5 @@ layout: "single"
 
 ---
 
-
-
-
-
-
-
-## 联系我 (Contact)
-如果你对投资、AI 或复杂性思维有独特的见解，欢迎通过文章下方的留言区与我交流。
+## Contact
+If you have unique insights into investing, AI, or complexity thinking, feel free to connect with me via the comments section below each article.
