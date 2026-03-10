@@ -5,74 +5,83 @@ keywords: ["Ontology", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "
 draft: false
 ---
 
-Palantir内部有一个非常重要的词：Ontology
+Palantir：Ontology
 
 
 ---
-## Palantir CEO Alex Karp：为什么“买 AI 模型”正在变成企业最昂贵的幻觉？
 
-几乎所有 Fortune 500 公司现在都在做同一件事：
-• 买 AI 订阅。
-• 接入几个大模型。
-• 然后在董事会上宣布——“我们有 AI 战略了”。
+## title: "Palantir CEO Alex Karp: The Costly Illusion of 'Buying Models'"
+date: 2026-03-10
+keywords: ["Alex Karp", "Palantir", "AI Strategy", "Enterprise AI", "Ontology", "Operating System"]
+draft: false
 
-但 $PLTR CEO Alex Karp 对这种做法的评价非常直接。他说：“只是在企业里买模型，最终会变成一种 self-pleasuring，而且是以企业自身利益为代价。”  这句话之所以刺耳，是因为它戳中了一个现实。很多公司确实把 “用 AI”当成战略，而不是 “用 AI 改造业务”。很多企业现在做的事情，其实是这样：
-• 采购 ChatGPT / Claude / Gemini
-• 给员工开放 AI 助手
-• 在 PPT 里写上 “AI transformation”
+## Palantir CEO Alex Karp: Why "Buying AI Models" is Becoming the Most Expensive Illusion for Enterprises
 
+Almost every Fortune 500 company is currently doing the exact same thing:
 
-但业务流程、数据结构、决策系统——几乎没有改变。这就像给一家 20 年的企业装了一个“AI 插件”，却没有改变企业真正运转的系统。
+* Purchasing AI subscriptions.
+* Plugging into a few Large Language Models (LLMs).
+* Announcing to the board: "We have an AI strategy."
 
+But **Alex Karp**, CEO of **Palantir ($PLTR)**, offers a blunt assessment of this approach. He says: *"Just buying models in an enterprise will eventually become a form of self-pleasuring, and at the expense of the enterprise's own interests."* This statement is jarring because it strikes at a hard reality: many companies treat "using AI" as a strategy rather than "transforming the business through AI." What most enterprises are doing right now looks like this:
 
-Karp 的核心观点其实很简单：AI 不是一个工具问题，而是系统问题。为什么 Palantir 会这么说？因为他们的产品逻辑，本质上和大模型公司完全不同。
+* Procuring ChatGPT / Claude / Gemini.
+* Giving employees access to AI assistants.
+* Putting "AI Transformation" in their slide decks.
 
+Yet, their **business processes, data structures, and decision-making systems** remain virtually unchanged. It is like adding an "AI plugin" to a 20-year-old enterprise without updating the engine that actually runs the business.
 
-OpenAI / Anthropic卖的是 模型能力
+### **AI is a System Problem, Not a Tool Problem**
 
+Karp’s core argument is simple: AI is not a tool problem; it is a **system problem**. Palantir can say this because their product logic is fundamentally different from that of the LLM giants.
 
-而 Palantir卖的是 企业决策系统
+* **OpenAI / Anthropic** sell **Model Capabilities**.
+* **Palantir** sells **Enterprise Decision Systems**.
 
+In Palantir’s world, AI is not a chatbot that answers questions; it is a system that directly participates in operational decisions, such as:
 
-在 Palantir 的世界里：AI 不是回答问题的聊天机器人，AI 是直接参与 企业运营决策的系统。比如：
+* Battlefield intelligence systems.
+* Supply chain orchestration.
+* Manufacturing optimization.
+* Healthcare resource allocation.
 
-• 战场情报系统
-• 供应链调度
-• 制造优化
-• 医疗资源分配
+The core of these systems is not the model—it is the **Data Structure + Decision Workflow + Software Architecture**.
 
+### **The Key Concept: Ontology**
 
-这类系统的核心不是模型，而是 数据结构 + 决策流程 + 软件架构。
+Inside Palantir, there is a crucial term: **Ontology**. Simply put, it means turning all of an enterprise’s data, relationships, and rules into a computable "World Model." Only then can AI truly participate in decision-making.
 
+This is why Karp is so critical: if an enterprise only buys model APIs without changing its data architecture and business processes, AI will ultimately only do three things:
 
-Palantir内部有一个非常重要的词：**Ontology**。简单理解就是：把企业所有数据、关系、规则变成一个可计算的“世界模型”。然后 AI 才能真正参与决策。  所以 Karp 才会批评：如果企业只是 买模型 API，却没有改变自己的数据架构和业务流程，那 AI 最终只能做三件事：
-• 写邮件
-• 写代码
-• 写 PPT
-但不会改变企业的核心竞争力。这也是为什么过去一年出现一个很有意思的分化：一类公司在卖 AI 模型，另一类公司在卖 AI operating system，Palantir 属于后者。
+1. Write emails.
+2. Write code.
+3. Write PPTs.
 
+It will **not** change the core competitiveness of the enterprise. This explains the interesting divergence we’ve seen over the past year: one group of companies is selling AI models, while another—like Palantir—is selling an **AI Operating System**.
 
-从投资视角看，这背后其实是一个更大的问题：AI 的真正价值在哪里？不是模型。而是谁能把 AI 接入真实世界系统。
+### **The Investment Perspective: Where is the Real Value?**
 
-制造
-国防
-能源
-物流
-医疗
+From an investment standpoint, this poses a larger question: where is the true value of AI?
+It is not in the models. It is in **who can integrate AI into real-world systems.**
 
-这些领域的价值远远大于聊天机器人。
+* Manufacturing
+* Defense
+* Energy
+* Logistics
+* Healthcare
 
-所以 Karp 这句话其实是在暗示一件事：AI 的第二阶段才刚刚开始。
+The value in these sectors far outweighs the value of chatbots. Karp’s rhetoric implies that we are moving into a new era:
 
+* **Phase 1:** Competition over **Model Capabilities**.
+* **Phase 2:** Competition over **Systemic Implementation**.
 
-第一阶段是模型能力竞争
+Many companies are still stuck in Phase 1. Palantir is betting everything on Phase 2.
 
-第二阶段是 AI 系统化落地
+### **Final Thought**
 
-很多公司现在还停留在第一阶段。而 Palantir 正在赌第二阶段。
+I have been reflecting on this: over the next decade, which type of AI company will generate the most significant wealth? Will it be the ones selling the models, or the ones that turn AI into the operating system of the modern enterprise?
 
+---
 
-我一直在想一个问题：未来 10 年，真正赚大钱的 AI 公司会是哪一类？是卖模型的公司，还是把 AI 变成企业操作系统的公司。
-
-
-
+**Next Step:**
+Would you like me to cross-reference this with your previous notes on **James Anderson's** "Power Law" or **W. Brian Arthur's** "Increasing Returns" to see how Palantir fits into those frameworks?
