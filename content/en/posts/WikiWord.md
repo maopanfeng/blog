@@ -5,44 +5,57 @@ draft: false
 ---
 
 **Business**
-quality business 普通生意
-great business 优秀生意
-outstanding business 伟大生意
 
 
-**物品「goods」**
+quality business 
 
-「物品」是从英语「goods」这个字翻译过来的。因此，「物品」这一词有很广泛的含义。它不仅可释义为产品（product）或商品（commodity），也包括服务（service）、友情、声望、空气、清洁、幽静、爱人、爱，等等。凡是有胜于无的东西，不管是有形或无形，都是「物品」——「有胜于无」是经济学上的「物品」定义。
+
+great business 
+
+
+outstanding business 
+
+
+**goods**
+
+product
+
+commodity
+
+service
 
 ---
 
-**「缺乏」（scarcity）**
+**scarcity**
 
 
 **Scarifice**
-在市场上，我们要付的代价就是价格（price）。所以我们可以说，凡有价格的物品都是缺乏的，不足够的。有一些社会——比如极端的共产社会——市场不存在，没有价格，但代价（sacrifice）还是要付出的
+
+price
 
 
-**价格（price）**
+
+**price**
 
 
 ---
 **competition**
 
-经济学上的「竞争」（competition）是指人与人之间的竞争——这是因为所有经济学的基础假设都是为人而设，要解释的行为大都是人与人之间的竞争行为。
+
+
 
 ---
-**产权制度（system of property rights）**
-
-是竞争的游戏规则，也就是约束竞争行为的一种局限条件。
+**system of property rights**
 
 
-**私有产权（private property rights）**
-
-是其中一种。
 
 
-艾智仁说得好，「产」（Property）、竞争（Competition）、缺乏（Scarcity）这三个字是同义的。
+**private property rights**
+
+
+
+
+Alchian oncesaid diasdcenai hclProperty Competition Scarcity
 
 
 ---
