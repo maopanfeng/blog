@@ -1,7 +1,11 @@
+---
 title: "Brian Arthur"
-date: 2006-01-01
+date: 2026-03-01
 keywords: ["Increasing Returns", "Network Enhancement", "Complexity Thinking", "Technological Evolution", "Technology as a Living Organism", "Power Law", "Positive Feedback Mechanism"]
 draft: false
+---
+
+
 Core Pillars of Thought
  * Law of Increasing Returns: The engine of the digital age.
  * Positive Feedback Mechanisms: Small accidents lead to large outcomes.
