@@ -1,7 +1,7 @@
 ---
 title: Rudolf Carnap
 date: 2002-09-01
-Keywords: "GrazieLogical Positivism", Verificationism, Protocol Sentences, Induction, Probability, Theoretical Terms, Unified Science]
+Keywords: ["GrazieLogical Positivism", "Verificationism", "Protocol Sentences", "Induction", "Probability", "Theoretical Terms", "Unified Science"]
 draft: false
 ---
 
