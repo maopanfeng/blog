@@ -7,9 +7,8 @@ draft: false
 
 **Gemini 3.0**
 
-投资是认知的变现，投资家中热衷读书的为数不少，巴菲特、芒格、安德森……某种意义上，投资回报只是他们个人知识体系和思维模式的副产品。
-
-在读书这件事情上，Gemini现在提供了很好的方面；NotebookLM
 
 
-深度学习的重视。筛选信息并转化为知识的能力，是长期超额收益的来源。
+Investment is the realization of insight. Among great investors, avid readers are far from a rarity—Buffett, Munger, Anderson, to name a few. In a sense, investment returns are merely a byproduct of their personal knowledge systems and mental models.
+In the realm of reading, Gemini now offers exceptional convenience; specifically, NotebookLM.
+This highlights the critical importance of Deep Learning. The ability to filter information and transmute it into true knowledge is the ultimate source of long-term alpha.
