@@ -1,81 +1,54 @@
 ---
 title: "Baillie Gifford"
 date: 2023-05-01
+keywords: ["System Theory", "Emergence", "Complexity", "Non-linear", "Self-organization", "Geoffrey West"]
 draft: false
 ---
-
-
-
-
-柏基的书单
-
-投资是认知的变现，投资家中热衷读书的为数不少，巴菲特、芒格、阿瑟……某种意义上，投资回报只是他们个人知识体系和思维模式的副产品。
-
-在读书这件事情上，柏基不遑多让，作为将学术氛围植入企业文化的投资机构，柏基对读书和学习有着恋爱般的热情。
-
-### 柏基书单：4大类别
-
-柏基旗舰基金 SMT 的两任基金经理安德森和斯莱特曾多次提及对他们投资思维有启发的书籍，大致可以分为以下 4 类：
-
-1. **第一类，经济/哲学类书籍**：通常是通过一个分析框架，分析经济、社会运行、产业变革的特点和本质。
-2. **第二类，心理学类书籍**：这类书籍讨论人类心理模型、行为特点、决策机制等方面问题。
-3. **第三类，行业类书籍**：此类书籍与行业发展趋势、变化规律相关。
-4. **第四类，公司传记**：公司的成功往往离不开公司的创始人、管理团队和独特的企业文化。
-
----
-
-### 18 本核心书目及内容简介
-
-1. **《复杂经济学》** (Brian Arthur)
-   复杂经济学中一个非常重要的概念是收益递增规律，这一概念很好地解释了柏基投资所寻求的“超常回报企业”的特征。
-
-2. **《技术的本质》** (Brian Arthur)
-   阿瑟是对柏基投资思想影响最大的学者之一，《技术的本质》一书清晰地描述了技术的起源和进化。在阿瑟看来，技术的本质是对现象有目的地编程，技术是可以自我进化的“生命体”。
-
-3. **《技术革命与金融资本》** (Carlota Perez)
-   佩蕾丝发现，每次技术革命都遵循类似模式，都会经历四个阶段以及阶段间的过渡，在每个阶段，金融资本都对重大技术创新的发生和扩散起到重要作用。
-
-4. **《极端不确定性》** (John Kay & Mervyn King)
-   本书指出，生活中大多数情况都涉及极端不确定性，并不能用概率论解释。人们应该拥抱不确定性，用稳健和有韧性的计划积极应对。
-
-5. **《事实》** (Hans Rosling)
-   这本书遵循实事求是的世界观，提倡用数据思考，避免情绪化决策。罗斯林在书中提出了人类常见的 10 种错误思维（如一分为二、负面思维、直线思维、恐惧本能等）。
-
-6. **《规模》** (Geoffrey West)
-   利用规模法则，复杂世界变得可量化、可预测。生物、城市甚至公司都存在规模法则。规模法则不仅为人类思考未知世界提供了法则，而且能解答不同系统的生长曲线问题。
-
-7. **《必然》** (Kevin Kelly)
-   凯利在书中总结了他几十年对于科技领域的分析研究，用 12 个关键词阐述了科技发展的必然趋势，这种对长期趋势的判断非常契合柏基长期全球成长的投资理念。
-
-8. **《未来简史》** (Yuval Noah Harari)
-   从生物学和历史学角度，探讨了人类在 21 世纪面临的挑战，以及大数据、人工智能如何重塑人类。
-
-9. **《非凡幻觉与群体疯狂》** (Charles Mackay)
-   详细记录了历史上著名的金融泡沫，柏基通过研究群体心理，来识别市场中的非理性行为与估值陷阱。
-
-10. **《反脆弱》** (Nassim Taleb)
-    塔勒布认为某些系统能从冲击中获益。柏基寻找的是那些在极端不确定性中不仅能生存、而且能进化的“反脆弱”企业。
-
-11. **《财富的起源》** (Eric Beinhocker)
-    用复杂性科学重新定义了经济学。它认为财富来源于不断进化的商业模式，支撑了柏基对于“进化型企业”的偏好。
-
-12. **《适应》** (Tim Harford)
-    在复杂世界中，成功的路径往往是不断试验和快速迭代。本书探讨了为什么失败是进化的必然过程，以及公司如何通过适应性保持竞争力。
-
-13. **《创新者的窘境》** (Clayton Christensen)
-    理解“破坏性创新”的圣经。柏基利用这一理论来寻找那些能够颠覆传统巨头、开辟全新市场的初创企业。
-
-14. **《从 0 到 1》** (Peter Thiel)
-    探讨如何构建具有垄断潜力的企业。蒂尔的竞争逻辑与柏基寻找“稀缺性”和“核心壁垒”的目标高度一致。
-
-15. **《跨越鸿沟》** (Geoffrey Moore)
-    解释了为什么很多伟大的技术无法转化为大众产品，帮助柏基识别那些真正能跨越早期市场、走向主流的科技公司。
-
-16. **《思考，快与慢》** (Daniel Kahneman)
-    行为经济学的基石。理解人类决策的系统性偏见，帮助投资人优化自己的决策流程。
-
-17. **《深奥的简洁》** (John Gribbin)
-    揭示了混沌和复杂系统背后遵循着极简的自然定律，启发投资人从噪音中抓取最核心的确定性。
-
-18. **《如何阅读一本书》** (Mortimer Adler)
-    体现了柏基对“深度学习”的重视。筛选信息并转化为知识的能力，是长期超额收益的来源。
+The Baillie Gifford Reading List
+Investment is the realization of insight. Among great investors, avid readers are far from a rarity—Buffett, Munger, Arthur, and the like. In a sense, investment returns are merely a byproduct of their personal knowledge systems and mental models.
+Baillie Gifford is second to none in this regard. As an investment institution that weaves an academic atmosphere into its corporate culture, Baillie Gifford possesses a romantic passion for reading and continuous learning.
+The Reading List: Four Major Categories
+James Anderson and Tom Slater, the two successive managers of Baillie Gifford's flagship fund, Scottish Mortgage (SMT), have frequently cited books that inspired their investment thinking. These can be categorized into four types:
+ * Economics & Philosophy: Books that offer a framework to analyze the essence and characteristics of economic systems, social structures, and industrial shifts.
+ * Psychology: Works discussing mental models, behavioral traits, and decision-making mechanisms.
+ * Industry-Specific: Texts related to developmental trends and the laws of change within specific sectors.
+ * Corporate Biographies: Stories of company success that explore the roles of founders, management teams, and unique corporate cultures.
+18 Essential Titles and Synopses
+ * Complexity Economics (W. Brian Arthur)
+   A pivotal concept here is the law of Increasing Returns, which perfectly explains the characteristics of the "exceptional-return enterprises" that Baillie Gifford seeks.
+ * The Nature of Technology (W. Brian Arthur)
+   Arthur is one of the scholars who has most profoundly influenced Baillie Gifford. This book describes the origin and evolution of technology as a "living organism" that "programs phenomena" for a purpose.
+ * Technological Revolutions and Financial Capital (Carlota Perez)
+   Perez discovered that every technological revolution follows a pattern of four stages. In each phase, financial capital plays a critical role in the emergence and diffusion of major innovations.
+ * Radical Uncertainty (John Kay & Mervyn King)
+   The authors argue that most situations in life involve radical uncertainty that cannot be explained by probability theory. One should embrace uncertainty with robust and resilient planning.
+ * Factfulness (Hans Rosling)
+   This book advocates for a fact-based worldview, using data to think and avoiding emotional decision-making by identifying ten common human instincts that distort reality.
+ * Scale (Geoffrey West)
+   By using scaling laws, the complex world becomes quantifiable and predictable. Biological organisms, cities, and even companies follow scaling laws that answer fundamental questions about growth curves.
+ * The Inevitable (Kevin Kelly)
+   Kelly outlines 12 keywords to describe the inevitable trends of technological development, matching Baillie Gifford’s philosophy of long-term global growth.
+ * Homo Deus (Yuval Noah Harari)
+   From a biological and historical perspective, this book explores the challenges humanity faces in the 21st century and how Big Data and AI are reshaping the human experience.
+ * Extraordinary Popular Delusions and the Madness of Crowds (Charles Mackay)
+   A detailed record of famous financial bubbles. By studying group psychology, Baillie Gifford identifies irrational behavior and valuation traps in the market.
+ * Antifragile (Nassim Taleb)
+   Taleb argues that some systems benefit from shocks. Baillie Gifford searches for "antifragile" enterprises that not only survive but evolve within radical uncertainty.
+ * The Origin of Wealth (Eric Beinhocker)
+   This work redefines economics using complexity science, positing that wealth arises from evolving business models—supporting the firm’s preference for "evolutionary companies."
+ * Adapt (Tim Harford)
+   In a complex world, success comes through constant experimentation and rapid iteration. Harford explores why failure is a necessary part of evolution and how companies stay competitive through adaptability.
+ * The Innovator's Dilemma (Clayton Christensen)
+   The "bible" of Disruptive Innovation. Baillie Gifford uses this theory to find startups capable of toppling incumbents and opening entirely new markets.
+ * Zero to One (Peter Thiel)
+   An exploration of how to build companies with monopoly potential. Thiel’s logic of competition aligns with the firm’s goal of finding scarcity and core moats.
+ * Crossing the Chasm (Geoffrey Moore)
+   Explains why many great technologies fail to become mass-market products, helping the firm identify tech companies that can truly move from early adopters to the mainstream.
+ * Thinking, Fast and Slow (Daniel Kahneman)
+   The cornerstone of behavioral economics. Understanding the systemic biases in human decision-making helps investors optimize their own processes.
+ * Deep Simplicity (John Gribbin)
+   Reveals that chaos and complex systems follow simple natural laws, inspiring investors to find core certainty amidst the noise.
+ * How to Read a Book (Mortimer Adler)
+   A testament to the importance of Deep Learning. The ability to filter information and transmute it into true knowledge is the ultimate source of long-term alpha.
+Next Step:
+Would you like me to link this Baillie Gifford reading list to your existing nodes on James Anderson or Complexity Investing to build out your knowledge network?
