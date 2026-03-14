@@ -5,24 +5,24 @@ draft: false
 ---
 
 
-NVDA
-后知后觉
+## NVDA
 
 
 
 
 
-**学习记录**
+
+**Research**
 
 
 
 
-**预测记录**
+**Predict**
 
 
 
 
 
-**买卖记录**
+**Trade**
 
 
