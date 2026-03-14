@@ -5,10 +5,16 @@ draft: false
 ---
 
 
-“调和围绕政府行动的分歧，是政治的一项根本难题。詹姆斯·麦迪逊（James Madison）在起草《宪法》中发挥了主导作用，本书也将反复求助于他以获得指引。在为新《宪法》向各州批准大会上正在决定是否予以批准的代表作辩护时，他在《联邦党人文集》第 10 篇中作出了一段最令人难忘、也最具启发性的论述。他解释说，新政府必须代表并调和社会中许多不同的偏好，这些偏好「播种在人类的天性之中」：
-  对宗教、对政府以及许多其他问题的不同意见的热忱……反过来把人类分裂成党派，使他们彼此仇恨，并使他们更倾向于相互烦扰与压迫，而不是为了共同福祉而合作。人类陷入相互敌意的这种倾向如此强烈，以至于在没有任何实质性缘由出现之处，最琐碎、”
+The Federalist Papers.
+The Logic of American Politics: James Madison
+"Reconciling differences over government action is a fundamental challenge of politics. James Madison, who played a leading role in drafting the Constitution and to whom this book will repeatedly turn for guidance, offered one of the most memorable and enlightening discussions on this subject in The Federalist No. 10. Defending the new Constitution to delegates at state ratifying conventions who were deciding whether to approve it, he explained that the new government must represent and reconcile many different preferences in society that are 'sown in the nature of man':
 
-Excerpt From
-[译] The Logic of American Politics
-Kernell, Samuel H.
-This material may be protected by copyright.
+
+A zeal for different opinions concerning religion, concerning government, and many other points... [has] divided mankind into parties, inflamed them with mutual animosity, and rendered them much more disposed to vex and oppress each other than to co-operate for their common good. So strong is this propensity of mankind to fall into mutual animosities, that where no substantial occasion presents itself, the most frivolous and fanciful distinctions have been sufficient to kindle their unfriendly passions...”
+
+
+Key Concepts for Your Latticework
+1. Factions (党派/利益集团): Madison argued that the causes of faction cannot be removed (as that would require destroying liberty), so we must instead control its effects. This is the ultimate "System Design" for a stable society.
+2. Institutional Resilience (制度韧性): By designing a large republic with a diversity of interests, Madison created a "Self-Correcting System." No single faction can easily gain a majority to oppress the rest.
+3. Human Nature as the "Operating System": Madison’s observation that hostility is "sown in the nature of man" aligns with the modern understanding of complex social systems—conflict is not a bug; it is an inherent feature of the human biological and social "OS."
+
