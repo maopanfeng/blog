@@ -8,32 +8,37 @@
         body { margin: 0; padding: 0; background: #fff; color: #000; font-family: -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
         header { position: fixed; top: 0; left: 0; right: 0; height: 80px; z-index: 9999; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: center; }
         .nav-container { width: 100%; max-width: 720px; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; box-sizing: border-box; }
-        .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
-        .site-logo { width: 32px; height: 32px; border-radius: 6px; }
-        .site-title { font-weight: 800; font-size: 1.25rem; }
         
-        /* 导航右侧布局：整合搜索框 */
-        .nav-right { display: flex; align-items: center; gap: 15px; }
-        .nav-link { font-size: 14px; opacity: 0.6; text-decoration: none; color: inherit; transition: opacity 0.2s; font-weight: 500; }
+        /* 核心修复：确保品牌文字始终显示，不被挤压 */
+        .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; flex: 0 0 auto; }
+        .site-logo { width: 32px; height: 32px; border-radius: 6px; }
+        .site-title { font-weight: 800; font-size: 1.25rem; white-space: nowrap; display: inline-block !important; }
+        
+        .nav-right { display: flex; align-items: center; gap: 15px; flex: 1; justify-content: flex-end; min-width: 0; }
+        .nav-link { font-size: 14px; opacity: 0.6; text-decoration: none; color: inherit; transition: opacity 0.2s; font-weight: 500; white-space: nowrap; }
         .nav-link:hover { opacity: 1; }
         .lang-switch { font-size: 12px; opacity: 0.4; font-weight: 700; }
 
-        /* 搜索框样式：与首页保持一致 */
-        .search-wrapper { display: flex; align-items: center; background: rgba(0,0,0,0.05); border-radius: 20px; padding: 6px 12px; }
+        .search-wrapper { display: flex; align-items: center; background: rgba(0,0,0,0.05); border-radius: 20px; padding: 6px 12px; margin-right: 5px; }
         .search-box { background: transparent; border: none; font-size: 13px; width: 60px; outline: none; transition: width 0.3s; }
-        .search-box:focus { width: 100px; }
+        .search-box:focus { width: 90px; }
 
         main { width: 100%; max-width: 720px; margin: 140px auto 0; padding: 0 24px; box-sizing: border-box; flex: 1; }
         h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 2rem; text-align: left; line-height: 1.2; letter-spacing: -0.02em; }
         .content { line-height: 1.8; opacity: 0.9; font-size: 17px; color: #111; }
         .content p { margin-bottom: 1.5em; text-align: justify; }
-        .content h3 { margin-top: 2.5em; font-size: 1.4rem; border-left: 4px solid #000; padding-left: 15px; margin-bottom: 1em; }
         
         footer { width: 100%; padding: 100px 24px 60px; text-align: center; font-size: 11px; opacity: 0.2; letter-spacing: 0.05em; }
 
+        /* 移动端适配：缩小字体和间距，但绝不隐藏标题 */
         @media (max-width: 600px) {
-            .site-title { display: none; } /* 移动端隐藏文字标题，留出空间给搜索 */
-            .search-box { width: 40px; }
+            .nav-container { padding: 0 16px; }
+            .site-title { font-size: 1.1rem; gap: 8px; }
+            .site-logo { width: 28px; height: 28px; }
+            .search-box { width: 35px; }
+            .search-box:focus { width: 50px; }
+            .nav-right { gap: 8px; }
+            .nav-link { font-size: 13px; }
         }
     </style>
 </head>
@@ -46,17 +51,17 @@
             </a>
             <div class="nav-right">
                 <div class="search-wrapper">
-                    <input type="text" class="search-box" placeholder="Search..." onkeyup="handleSearch(this.value)">
+                    <input type="text" class="search-box" placeholder="Search..." onkeydown="handleSearch(event, this.value)">
                 </div>
 
                 {{ if eq .Lang "en" }}
                     <a href="/cn/{{ .Slug | default .File.BaseFileName }}" class="lang-switch nav-link">中文</a>
-                    <a href="/wiki" class="nav-link">Wiki</a>
-                    <a href="/about" class="nav-link">About</a>
-                {{ else }}
-                    <a href="/{{ .Slug | default .File.BaseFileName }}" class="lang-switch nav-link">EN</a>
                     <a href="/cn/wiki" class="nav-link">Wiki</a>
                     <a href="/cn/about" class="nav-link">About</a>
+                {{ else }}
+                    <a href="/{{ .Slug | default .File.BaseFileName }}" class="lang-switch nav-link">EN</a>
+                    <a href="/wiki" class="nav-link">Wiki</a>
+                    <a href="/about" class="nav-link">About</a>
                 {{ end }}
             </div>
         </div>
@@ -76,9 +81,9 @@
     </footer>
 
     <script>
-        // 文章页搜索逻辑：如果是在文章页搜索，建议直接跳转回首页并带上搜索参数，或者仅高亮本页
-        function handleSearch(query) {
-            if (event.key === 'Enter') {
+        function handleSearch(event, query) {
+            if (event.key === 'Enter' && query.trim() !== "") {
+                // 回车后带参数跳转回首页执行过滤
                 const searchPath = "{{ if eq .Lang "cn" }}/cn/{{ else }}/{{ end }}?q=" + encodeURIComponent(query);
                 window.location.href = searchPath;
             }
