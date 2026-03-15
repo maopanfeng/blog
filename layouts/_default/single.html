@@ -28,15 +28,15 @@
         .content p { margin-bottom: 1.5em; text-align: justify; }
 
         /* 评论区样式调整 */
-        #comments { margin-top: 100px; padding-top: 40px; border-top: 1px solid rgba(0,0,0,0.05); margin-bottom: 60px; }
+        #comments { margin-top: 100px; padding-top: 40px; border-top: 1px solid rgba(0,0,0,0.05); margin-bottom: 80px; }
         
         footer { width: 100%; padding: 60px 24px 60px; text-align: center; font-size: 11px; opacity: 0.2; letter-spacing: 0.05em; }
 
         @media (max-width: 600px) {
             .nav-container { padding: 0 16px; }
-            .site-title { font-size: 1.1rem; gap: 8px; }
-            .search-box { width: 35px; }
-            .nav-right { gap: 8px; }
+            .site-title { font-size: 1.1rem; }
+            .search-box { width: 40px; }
+            .nav-right { gap: 10px; }
         }
     </style>
 </head>
@@ -72,11 +72,9 @@
                 {{ .Content }}
             </div>
 
-            {{ if not .Params.disableComments }}
             <div id="comments">
-                {{ partial "comments.html" . }}
+                {{ template "_internal/disqus.html" . }}
             </div>
-            {{ end }}
         </article>
     </main>
 
