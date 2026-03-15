@@ -24,7 +24,7 @@ Key Vocabulary & Phrasings
 * The Oblique Approach: The strategic method of focusing on the process or values rather than the specific outcome.
 
 
-* * By-product: A secondary result. In the book, profit is described as a by-product of excellence.
+* By-product: A secondary result. In the book, profit is described as a by-product of excellence.
 
 
 * Circuitous [sər-ˈkyü-ə-təs]: A more descriptive word for a route that is "longer than the direct way" but often more effective in complex systems.
@@ -46,4 +46,3 @@ Nuance Note
 Avoid using the word "Detour." A detour implies a temporary or forced deviation from a "proper" straight path. Obliquity suggests that in a complex world, the straight path does not exist.
 
 
-Would you like me to translate a specific passage from the book or summarize the "Boeing vs. Airbus" case study in English?
