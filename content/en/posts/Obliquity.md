@@ -1,7 +1,7 @@
 ---
 title: "Obliquity"
 date: 2025-12-01
-keywords: ["", "", "", "", "", "indirectly", "", "", "", "", "", "", "", "", "", "", ""]
+keywords: ["", "flow", "", "", "", "indirectly", "", "", "", "", "", "", "", "", "", "", ""]
 draft: false
 ---
 
@@ -19,6 +19,17 @@ Key Vocabulary & Phrasings
 
 
 * Indirect Pursuit: The core concept that goals like happiness or profit are results of other activities, not targets to be aimed at directly.
+
+
+* Flow
+
+
+The psychologist Mihalyi Csikszentmihalyi uses the term flow to
+describe the sensation people experience while engaged in demanding
+activities. It is “the sense of effortless action they feel [that] tends to occur
+when a person’s skills are fully involved in overcoming a challenge that is
+just about manageable.”
+
 
 
 * The Oblique Approach: The strategic method of focusing on the process or values rather than the specific outcome.
