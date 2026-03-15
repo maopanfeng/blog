@@ -9,7 +9,6 @@
         header { position: fixed; top: 0; left: 0; right: 0; height: 80px; z-index: 9999; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: center; }
         .nav-container { width: 100%; max-width: 720px; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; box-sizing: border-box; }
         
-        /* 核心修复：确保品牌文字始终显示，不被挤压 */
         .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; flex: 0 0 auto; }
         .site-logo { width: 32px; height: 32px; border-radius: 6px; }
         .site-title { font-weight: 800; font-size: 1.25rem; white-space: nowrap; display: inline-block !important; }
@@ -27,18 +26,17 @@
         h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 2rem; text-align: left; line-height: 1.2; letter-spacing: -0.02em; }
         .content { line-height: 1.8; opacity: 0.9; font-size: 17px; color: #111; }
         .content p { margin-bottom: 1.5em; text-align: justify; }
-        
-        footer { width: 100%; padding: 100px 24px 60px; text-align: center; font-size: 11px; opacity: 0.2; letter-spacing: 0.05em; }
 
-        /* 移动端适配：缩小字体和间距，但绝不隐藏标题 */
+        /* 评论区样式调整 */
+        #comments { margin-top: 100px; padding-top: 40px; border-top: 1px solid rgba(0,0,0,0.05); margin-bottom: 60px; }
+        
+        footer { width: 100%; padding: 60px 24px 60px; text-align: center; font-size: 11px; opacity: 0.2; letter-spacing: 0.05em; }
+
         @media (max-width: 600px) {
             .nav-container { padding: 0 16px; }
             .site-title { font-size: 1.1rem; gap: 8px; }
-            .site-logo { width: 28px; height: 28px; }
             .search-box { width: 35px; }
-            .search-box:focus { width: 50px; }
             .nav-right { gap: 8px; }
-            .nav-link { font-size: 13px; }
         }
     </style>
 </head>
@@ -73,6 +71,12 @@
             <div class="content">
                 {{ .Content }}
             </div>
+
+            {{ if not .Params.disableComments }}
+            <div id="comments">
+                {{ partial "comments.html" . }}
+            </div>
+            {{ end }}
         </article>
     </main>
 
@@ -83,7 +87,6 @@
     <script>
         function handleSearch(event, query) {
             if (event.key === 'Enter' && query.trim() !== "") {
-                // 回车后带参数跳转回首页执行过滤
                 const searchPath = "{{ if eq .Lang "cn" }}/cn/{{ else }}/{{ end }}?q=" + encodeURIComponent(query);
                 window.location.href = searchPath;
             }
