@@ -22,7 +22,10 @@
         h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 2rem; text-align: left; line-height: 1.2; letter-spacing: -0.02em; }
         .content { line-height: 1.8; opacity: 0.9; font-size: 17px; color: #111; }
         .content p { margin-bottom: 1.5em; text-align: justify; }
-        #disqus_thread { margin-top: 100px; padding-top: 40px; border-top: 1px solid rgba(0,0,0,0.05); margin-bottom: 60px; min-height: 300px; }
+        
+        /* Giscus 容器样式 */
+        .giscus { margin-top: 100px; padding-top: 40px; border-top: 1px solid rgba(0,0,0,0.05); margin-bottom: 80px; }
+
         footer { width: 100%; padding: 60px 24px 60px; text-align: center; font-size: 11px; opacity: 0.2; letter-spacing: 0.05em; }
         @media (max-width: 600px) { .nav-container { padding: 0 16px; } .site-title { font-size: 1.1rem; } .search-box { width: 40px; } }
     </style>
@@ -58,21 +61,23 @@
                 {{ .Content }}
             </div>
 
-            <div id="disqus_thread"></div>
-            <script>
-                var disqus_config = function () {
-                    this.page.url = "{{ .Permalink }}";
-                    this.page.identifier = "{{ .File.UniqueID }}";
-                };
-                (function() {
-                    var d = document, s = d.createElement('script');
-                    // 核心中的核心：请确保下面的 maopanfeng 与你 Disqus 官网的 Shortname 一致
-                    s.src = 'https://maopanfeng.disqus.com/embed.js'; 
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
-                })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <div class="giscus">
+                <script src="https://giscus.app/client.js"
+                    data-repo="maopanfeng/maopanfeng.github.io"
+                    data-repo-id="R_kgDOIs6r6A"
+                    data-category="Announcements"
+                    data-category-id="DIC_kwDOIs6r6M4CTidq"
+                    data-mapping="pathname"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="top"
+                    data-theme="light"
+                    data-lang="{{ if eq .Lang "cn" }}zh-CN{{ else }}en{{ end }}"
+                    crossorigin="anonymous"
+                    async>
+                </script>
+            </div>
         </article>
     </main>
 
