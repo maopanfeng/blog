@@ -18,3 +18,4 @@ contentDir = "content/cn"
 languageName = "中文"
 weight = 2
 languageCode = "zh-cn"
+disqusShortname = "maopanfeng"  
