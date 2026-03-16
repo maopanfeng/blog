@@ -5,6 +5,16 @@ keywords: ["Steve Jobs", "Apple", "iPad", "iPhone", "Mac", "App Store", "", "", 
 draft: false
 ---
 
+
+Steve Jobs 
+
+
+
+Tim Cook
+
+
+
+
 Great Company in the world.
 
 
