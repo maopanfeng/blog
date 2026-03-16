@@ -48,4 +48,4 @@ To make time for reading, observing, and reflecting. I advocate for "Long-termis
 ---
 
 ## Contact
-If you have unique insights into investing, AI, or complexity thinking, feel free to connect with me via the comments section below each article.
+If you have unique insights into investing, AI, or complexity thinking, feel free to connect with me via the comments section below each article or email me to maopanfeng@hotmail.com
