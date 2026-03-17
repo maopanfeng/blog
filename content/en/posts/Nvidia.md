@@ -7,6 +7,7 @@ draft: false
 
 ## NVDA
 
+
 ### Research
 
 
@@ -23,12 +24,6 @@ draft: false
 2006
 
 
-**Research**
-
-
-
-
-**Predict**
 
 
 
