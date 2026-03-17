@@ -7,6 +7,7 @@ draft: false
 
 ## NVDA
 
+### Research
 
 
 ### Trade 
