@@ -1,6 +1,6 @@
 ---
 title: "Systems, Emergence, and Complexity"
-date: 2026-03-14
+date: 2020-01-01
 keywords: ["System Theory", "Emergence", "Complexity", "Non-linear", "Self-organization", "Geoffrey West"]
 draft: false
 ---
