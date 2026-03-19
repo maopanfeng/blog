@@ -6,12 +6,24 @@ draft: false
 ---
 
 
-Core Pillars of Thought
- * Law of Increasing Returns: The engine of the digital age.
- * Positive Feedback Mechanisms: Small accidents lead to large outcomes.
- * The Shift from Resource Scarcity to Network Enhancement: Wealth is created by connections, not just extraction.
- * Evolution over Prediction: We must accept market uncertainty and contingency; understanding a system’s evolution is far more vital than predicting a specific result.
-Complexity Economics: Non-Equilibrium and Positive Feedback
+## Core Pillars of Thought
+ ### * Law of Increasing Returns: The engine of the digital age.
+
+ 
+ ### * Positive Feedback Mechanisms: Small accidents lead to large outcomes.
+
+ 
+ ### * The Shift from Resource Scarcity to Network Enhancement: Wealth is created by connections, not just extraction.
+
+ 
+ ### * Evolution over Prediction: We must accept market uncertainty and contingency; understanding a system’s evolution is far more vital than predicting a specific result.
+
+ 
+### Complexity Economics: Non-Equilibrium and Positive Feedback
+
+
+
+
 W. Brian Arthur’s Complexity Economics fundamentally subverts the equilibrium assumptions of traditional economics. In a complex system, the economy is not a closed system resting in balance, but an ever-evolving, non-equilibrium process.
 Key Mental Models
 The Law of Increasing Returns
