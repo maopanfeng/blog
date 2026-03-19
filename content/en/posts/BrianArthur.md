@@ -1,6 +1,6 @@
 ---
 title: "Brian Arthur"
-date: 2026-03-01
+date: 2005-01-01
 keywords: ["Increasing Returns", "Network Enhancement", "Complexity Thinking", "Technological Evolution", "Technology as a Living Organism", "Power Law", "Positive Feedback Mechanism"]
 draft: false
 ---
