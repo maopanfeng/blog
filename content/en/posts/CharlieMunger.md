@@ -8,6 +8,40 @@ draft: false
 
 
 ---
+
+
+## Poor Charlie’s Almanack
+Peter Kaufman
+
+
+
+
+## Latticework: The New Investing
+Robert Hagstrom
+
+
+
+## Investing: The Last Liberal Art
+Robert Hagstrom
+
+
+
+## Seeking Wisdom From Darwin to Munger
+Peter Bevelin
+
+
+
+## Tao of Charlie Munger
+David Clark
+
+
+## 
+Tren Griffin
+
+
+
+
+
 * stock picking as a subdivision of the art of achieving worldly wisdom.
 
 * 
