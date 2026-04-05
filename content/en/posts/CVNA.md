@@ -11,10 +11,8 @@ draft: false
 
 
 
-## From James Anderson
+## James Anderson
 
-
-### The Amazon of Used Cars
 
 
 #### 1. The Core Thesis: "The Amazon of Used Cars"
