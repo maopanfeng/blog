@@ -16,18 +16,24 @@ draft: false
 
 
 ---
-## 📊 Valuation Framework: The PR Ratio (Profitability Ratio)
+
+
+
+---
+### 📊 Valuation Framework: The PR Ratio (Profitability Ratio)
 
 Following the investment philosophy of **@ericwarn** (Ding Ning) and the principles of **James Anderson**, I utilize the **PR Ratio** to evaluate NVIDIA's valuation beyond simple P/E multiples.
 
-> **Formula:** > $$PR = \frac{P/E}{ROE \times 100}$$
+> **Key Formula:**
+> **PR = (P/E) / (ROE × 100)**
 
 #### **Strategic Analysis (As of April 2026):**
 Traditional P/E ratios often flag NVIDIA as "expensive." However, the **PR Ratio** reveals a different story:
 
-* **The ROE Factor:** Driven by the massive shift to the *Rubin* architecture and the expansion into *Physical AI*, NVIDIA’s ROE has surged to approximately **75%**.
-* **The Calculation:** With a Forward P/E of **45x** and an ROE of **75%**, the $PR \approx 0.6$.
-* **Verdict:** According to @ericwarn’s "0.5-1.0-1.5" rule, a PR of **0.6** indicates that the high P/E is fully justified by NVIDIA's extraordinary capital efficiency. We are paying for **earning power**, not just speculative growth.
+* **The ROE Factor:** Driven by the massive shift to the **Rubin** architecture and the expansion into **Physical AI**, NVIDIA's ROE has surged to approximately **75%**.
+* **The Calculation:** With a Forward P/E of **45x** and an ROE of **75%**, the **PR ≈ 0.6**.
+* **Verdict:** According to @ericwarn's "0.5-1.0-1.5" rule, a PR of **0.6** indicates that the high P/E is fully justified by NVIDIA's extraordinary capital efficiency. We are paying for **earning power**, not just speculative growth.
+---
 
 ---
 
