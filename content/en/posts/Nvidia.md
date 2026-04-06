@@ -14,6 +14,12 @@ draft: false
 ### Research
 
 
+
+### Valuation Framework: The PR Ratio
+Referring to @ericwarn's "Profitability Ratio" ($PR = PE / ROE$), NVDA shows a different picture compared to traditional P/E. As of 2026, the high ROE justifies the valuation premium...
+
+
+
 ### Trade 
 
 
