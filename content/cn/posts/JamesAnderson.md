@@ -1,6 +1,6 @@
 ---
 title: "M. Mitchell Waldrop"
-date: 2005-01-01
+date: 2023-01-01
 keywords: ["Complexity", "SFI", "Non-linearity", "Positive Feedback", "James Anderson", "Path Dependency", "Antifragility", "Emergence", "Long-term Holding", "Increasing Returns"]
 draft: false
 ---
@@ -56,5 +56,17 @@ Investing is a probabilistic game of evolution. We do not need to predict every 
 
 **About the Author:**
 **M. Mitchell Waldrop** holds a Ph.D. in theoretical physics from the University of Wisconsin. A renowned science writer and former senior writer for *Science* and editorial editor for *Nature*, his other notable works include *The Dream Machine*.
+
+
+|   |   |   |   |
+|---|---|---|---|
+|**Node 1**|**Bessembinder 幂律**|股市只有 4% 的公司创造价值，所以必须极度集中。|Amazon, Tencent|
+|**Node 2**|**Carlota Perez 周期**|技术革命分为安装期和部署期。目前是部署期。|ASML, Nvidia|
+|**Node 3**|**Actual Investing**|投资是资本与创新的结合，交易是寄生行为。|(哲学宣言)|
+|**Node 4**|**Biology as Tech**|生物学正在变成一种信息科学，可编程、可预测。|Moderna, Illumina|
+|**Node 5**|**Permanent Capital**|开放式基金（每天可赎回）无法实现真正的长期投资。|Lingotto / Exor|
+
+
+
 
 
