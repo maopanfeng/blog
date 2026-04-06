@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Clippings/Set up Obsidian Sync.md",
+                "file": "content/en/posts/Alchian.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Set up Obsidian Sync"
+              "title": "Alchian"
             }
           }
         ]
@@ -185,8 +185,9 @@
       "obsidian-shellcommands:Shell commands: Custom variables": false
     }
   },
-  "active": "1ad7e28347236929",
+  "active": "0bec764e9915ec9d",
   "lastOpenFiles": [
+    "Clippings/Set up Obsidian Sync.md",
     "static/logo.png",
     "layouts/_default/wiki.html",
     "content/en/posts/WikiWord.md",
