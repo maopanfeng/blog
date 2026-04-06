@@ -4,24 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "4d32016f9eb41075",
+        "id": "77966cb003a048e4",
         "type": "tabs",
         "children": [
           {
-            "id": "c5c2b96f5725a92b",
+            "id": "0bec764e9915ec9d",
             "type": "leaf",
             "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Untitled.canvas",
-                "viewState": {
-                  "x": 0,
-                  "y": 0,
-                  "zoom": 0
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "Untitled"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -188,7 +181,7 @@
       "obsidian-shellcommands:Shell commands: Custom variables": false
     }
   },
-  "active": "c5c2b96f5725a92b",
+  "active": "0bec764e9915ec9d",
   "lastOpenFiles": [
     "2026.04.06.md",
     "Untitled.canvas",
