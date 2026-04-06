@@ -11,17 +11,14 @@
             "id": "c5c2b96f5725a92b",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Untitled.canvas",
-                "viewState": {
-                  "x": 0,
-                  "y": 0,
-                  "zoom": 0
-                }
+                "file": "2026.04.06.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "Untitled"
+              "icon": "lucide-file",
+              "title": "2026.04.06"
             }
           }
         ]
@@ -190,6 +187,10 @@
   },
   "active": "c5c2b96f5725a92b",
   "lastOpenFiles": [
+    "2026.04.06.md",
+    "Untitled.canvas",
+    "static/logo.png",
+    "layouts/_default/wiki.html",
     "content/en/posts/WikiWord.md",
     "content/en/posts/WikiSentence.md",
     "content/en/posts/WarrenBuffett.md",
@@ -215,7 +216,6 @@
     "content/en/posts/LewisRichardson.md",
     "content/en/posts/JosephSchumpeter.md",
     "content/en/posts/JohnTempleton.md",
-    "content/en/posts/JohnKay.md",
     "content/en/posts",
     "content/en",
     "content/cn/posts",
@@ -223,11 +223,8 @@
     "BEN/James Anderson",
     "BEN/Brian Arthur",
     "BEN",
-    "Untitled.canvas",
     "static/avatar.png",
     "layouts/_default/list.html",
-    "static/logo.png",
-    "layouts/_default/wiki.html",
     "layouts/_default/taxonomy.html",
     "static/favicon.png",
     "themes/paper/static/twitter.svg",
